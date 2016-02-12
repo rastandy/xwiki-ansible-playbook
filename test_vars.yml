@@ -1,0 +1,5 @@
+---
+# test vars file for xwiki
+
+postgresql_listen_addresses: '*'
+postgresql_pg_hba_trust_hosts: [all]
