@@ -26,7 +26,7 @@
         - name: "{{xwiki_database_user}}"
           db: "{{xwiki_database}}"
 
-    #Java installation and configuration
+    # Java installation and configuration
     - role: ansiblebit.oracle-java
       oracle_java_version: "{{xwiki_java_version}}"
       oracle_java_set_as_default: yes
