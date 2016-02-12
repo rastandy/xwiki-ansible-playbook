@@ -1,0 +1,32 @@
+---
+
+- hosts: all
+  remote_user: root
+  become: yes
+
+  vars_files:
+    - ./defaults.yml
+    - ./vars.yml
+
+  roles:
+    # Database installation and configuration
+    - role: ANXS.postgresql
+      postgresql_version: "{{xwiki_postgresql_version}}"
+      postgresql_encoding: "{{xwiki_postgresql_encoding}}"
+
+      postgresql_databases:
+        - name: "{{xwiki_database}}"
+          owner: "{{xwiki_database_user}}"
+
+      postgresql_users:
+        - name: "{{xwiki_database_user}}"
+          pass: "{{xwiki_database_user_pass}}"
+
+      postgresql_user_privileges:
+        - name: "{{xwiki_database_user}}"
+          db: "{{xwiki_database}}"
+
+    #Java installation and configuration
+    - role: ansiblebit.oracle-java
+      oracle_java_version: "{{xwiki_java_version}}"
+      oracle_java_set_as_default: yes
