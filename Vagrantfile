@@ -8,7 +8,7 @@ Vagrant.configure('2') do |config|
   config.ssh.private_key_path = '~/.vagrant.d/insecure_private_key'
 
   config.vm.define 'xwiki' do |machine|
-    machine.vm.box = "ubuntu/trusty64"
+    machine.vm.box = "centos/7"
     #machine.vm.box = "ubuntu/precise64"
     #machine.vm.box = "debian/jessie64"
     #machine.vm.box = "debian/wheezy64"
