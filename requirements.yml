@@ -2,9 +2,12 @@
 
 - src: https://github.com/ANXS/postgresql
   name: ANXS.postgresql
+  version: 04d90828102926f5c7094bb1c8aa907d9a5335d2
 
 - src: https://github.com/rastandy/ansible-tomcat
   name: groover.tomcat
+  version: 72a7fd4a5f68bed05503abe3e33361c051419c66
 
 - src: https://github.com/rastandy/ansible-java
   name: silpion.java
+  version: ee5e9582dad0a517839fd0d6f4852fe6d018271b
