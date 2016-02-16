@@ -26,15 +26,6 @@
         - name: "{{xwiki_database_user}}"
           db: "{{xwiki_database}}"
 
-    # # Java installation and configuration
-    # - role: ansiblebit.oracle-java
-    #   oracle_java_version: "{{xwiki_java_version}}"
-    #   oracle_java_set_as_default: yes
-
-    # - role: tomcat
-    #   tomcat_version: "8.0.32"
-    #   tomcat_install_base: /usr/local
-
     - role: silpion.java
 
     - role: groover.tomcat

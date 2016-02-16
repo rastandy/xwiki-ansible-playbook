@@ -1,0 +1,10 @@
+---
+
+- src: https://github.com/ANXS/postgresql
+  name: ANXS.postgresql
+
+- src: https://github.com/rastandy/ansible-tomcat
+  name: groover.tomcat
+
+- src: https://github.com/rastandy/ansible-java
+  name: silpion.java
