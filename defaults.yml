@@ -8,4 +8,9 @@ xwiki_database: xwiki
 xwiki_database_user: xwiki
 xwiki_database_user_pass: xwiki
 
-xwiki_java_version: 8
+xwiki_java_version: "8u66"
+
+xwiki_tomcat_version: "8.0.32"
+# SHA256 sum for the Tomcat redistributable package
+tomcat_redis_sha256sum: 7e23260f2481aca88f89838e91cb9ff00548a28ba5a19a88ff99388c7ee9a9b8
+tomcat_web_xml_schema_version: 3.1

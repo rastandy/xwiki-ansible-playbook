@@ -27,8 +27,11 @@
           db: "{{xwiki_database}}"
 
     - role: silpion.java
+      oracle_java_distribution: srv
+      oracle_java_version: "{{ xwiki_java_version }}"
 
     - role: groover.tomcat
+      tomcat_version: "{{ xwiki_tomcat_version }}"
       tomcat_instances:
       - name: xwiki
         user: xwiki
