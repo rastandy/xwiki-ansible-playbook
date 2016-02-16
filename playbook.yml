@@ -26,23 +26,27 @@
         - name: "{{xwiki_database_user}}"
           db: "{{xwiki_database}}"
 
-    # Java installation and configuration
-    - role: ansiblebit.oracle-java
-      oracle_java_version: "{{xwiki_java_version}}"
-      oracle_java_set_as_default: yes
+    # # Java installation and configuration
+    # - role: ansiblebit.oracle-java
+    #   oracle_java_version: "{{xwiki_java_version}}"
+    #   oracle_java_set_as_default: yes
 
-    - role: tomcat
+    # - role: tomcat
+    #   tomcat_version: "8.0.32"
+    #   tomcat_install_base: /usr/local
 
-    # - role: groover.tomcat
-    #   tomcat_instances:
-    #   - name: xwiki
-    #     user: xwiki
-    #     group: xwiki
-    #     path: /srv/xwiki
-    #     home: /home/xwiki
-    #     service_name: xwiki@tomcat
-    #     service_file: xwiki@.service
-    #     port_ajp: 18009
-    #     port_connector: 18080
-    #     port_redirect: 18443
-    #     port_shutdown: 18005
+    - role: silpion.java
+
+    - role: groover.tomcat
+      tomcat_instances:
+      - name: xwiki
+        user: xwiki
+        group: xwiki
+        path: /srv/xwiki
+        home: /home/xwiki
+        service_name: xwiki@tomcat
+        service_file: xwiki@.service
+        port_ajp: 18009
+        port_connector: 18080
+        port_redirect: 18443
+        port_shutdown: 18005
