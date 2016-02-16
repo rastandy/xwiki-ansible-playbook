@@ -38,9 +38,11 @@
         group: xwiki
         path: /srv/xwiki
         home: /home/xwiki
-        service_name: xwiki@tomcat
-        service_file: xwiki@.service
+        service_name: tomcat-xwiki
+        service_file: tomcat-xwiki.service
         port_ajp: 18009
         port_connector: 18080
         port_redirect: 18443
         port_shutdown: 18005
+
+    
