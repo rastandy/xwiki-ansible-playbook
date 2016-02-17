@@ -17,7 +17,7 @@ postgresql_jdbc_driver_sha256sum: c85381c4b7f9c89e237f8d148b27530ea049b56a6d0159
 
 xwiki_database: xwiki
 xwiki_database_user: xwiki
-xwiki_database_user_pass: xwiki
+xwiki_database_user_pass: xwikipassword
 
 xwiki_java_version: "8u66"
 

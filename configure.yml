@@ -1,0 +1,9 @@
+
+- name: Configure PostgreSQL database connection for XWiki
+  template:
+    src: templates/hibernate.cfg.xml.j2
+    dest: "{{ xwiki_path }}/webapps/ROOT/WEB-INF/hibernate.cfg.xml"
+    owner: "{{ xwiki_user }}"
+    group: "{{ xwiki_group }}"
+    mode: 0600
+  notify: service restart tomcat
