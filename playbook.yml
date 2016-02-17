@@ -8,8 +8,13 @@
     - ./defaults.yml
     - ./vars.yml
 
+  tasks:
+    - include: ./install_xwiki.yml
+    - include: ./configure_xwiki.yml
+
   roles:
     # Database installation and configuration
+    # JDBC Driver https://jdbc.postgresql.org/download/postgresql-9.4.1207.jar
     - role: ANXS.postgresql
       postgresql_version: "{{xwiki_postgresql_version}}"
       postgresql_encoding: "{{xwiki_postgresql_encoding}}"
@@ -34,15 +39,13 @@
       tomcat_version: "{{ xwiki_tomcat_version }}"
       tomcat_instances:
       - name: xwiki
-        user: xwiki
-        group: xwiki
-        path: /srv/xwiki
-        home: /home/xwiki
+        user: "{{ xwiki_user }}"
+        group: "{{ xwiki_group }}"
+        path: "{{ xwiki_tomcat_path }}"
+        home: /home/{{ xwiki_user }}
         service_name: tomcat-xwiki
         service_file: tomcat-xwiki.service
         port_ajp: 18009
         port_connector: 18080
         port_redirect: 18443
         port_shutdown: 18005
-
-    

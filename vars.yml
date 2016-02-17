@@ -1,3 +1,7 @@
 ---
 # vars file for xwiki
 
+xwiki_path: "{{ xwiki_tomcat_path }}/catalina/xwiki"
+
+# filename of XWiki war
+xwiki_filename: xwiki-{{ xwiki_version }}.war

@@ -1,0 +1,24 @@
+
+- name: Download XWiki
+  local_action: get_url
+  args:
+    url: "{{ xwiki_download_url }}"
+    dest: "{{ lib_persistent_data_path_local }}/{{ xwiki_filename }}"
+    sha256sum: "{{ xwiki_sha256sum }}"
+
+- name: Create XWiki webapp ROOT directory in Tomcat
+  file: 
+    path: "{{ xwiki_path }}/webapps/ROOT"
+    state: directory 
+    owner: "{{ xwiki_user }}"
+    group: "{{ xwiki_group }}"
+
+- name: Install XWiki in Tomcat
+  unarchive:
+    src: "{{ lib_persistent_data_path_local }}/{{ xwiki_filename }}"
+    dest: "{{ xwiki_path }}/webapps/ROOT"
+    owner: "{{ xwiki_user }}"
+    group: "{{ xwiki_group }}"
+    creates: "{{ xwiki_path }}/webapps/ROOT/WEB-INF"
+    copy: yes
+  notify: service restart tomcat
