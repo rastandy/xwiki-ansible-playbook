@@ -5,3 +5,6 @@ xwiki_path: "{{ xwiki_tomcat_path }}/catalina/xwiki"
 
 # filename of XWiki war
 xwiki_filename: xwiki-{{ xwiki_version }}.war
+
+postgresql_jdbc_driver_filename: "postgresql-{{ postgresql_jdbc_driver_version }}.jar"
+postgresql_jdbc_driver_url: "https://jdbc.postgresql.org/download/{{ postgresql_jdbc_driver_filename }}"

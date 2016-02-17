@@ -12,6 +12,7 @@ xwiki_group: xwiki
 
 xwiki_postgresql_version: 9.5
 xwiki_postgresql_encoding: 'UTF-8'
+postgresql_jdbc_driver_version: "9.4.1207"
 
 xwiki_database: xwiki
 xwiki_database_user: xwiki

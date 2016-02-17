@@ -1,4 +1,20 @@
 
+
+- name: Download PostgreSQL JDBC Driver
+  local_action: get_url
+  args:
+    url: "{{ postgresql_jdbc_driver_url }}"
+    dest: "{{ lib_persistent_data_path_local }}/{{ postgresql_jdbc_driver_filename }}"
+    # sha256sum: "{{ xwiki_sha256sum }}"
+
+
+- name: Install PostgreSQL JDBC Driver in Tomcat
+  copy:
+    src: "{{ lib_persistent_data_path_local }}/{{ postgresql_jdbc_driver_filename }}"
+    dest: "{{ xwiki_path }}/lib"
+    owner: "{{ xwiki_user }}"
+    group: "{{ xwiki_group }}"
+
 - name: Download XWiki
   local_action: get_url
   args:

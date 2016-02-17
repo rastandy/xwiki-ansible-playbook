@@ -9,12 +9,11 @@
     - ./vars.yml
 
   tasks:
-    - include: ./install_xwiki.yml
-    - include: ./configure_xwiki.yml
+    - include: ./install.yml
+    - include: ./configure.yml
 
   roles:
     # Database installation and configuration
-    # JDBC Driver https://jdbc.postgresql.org/download/postgresql-9.4.1207.jar
     - role: ANXS.postgresql
       postgresql_version: "{{xwiki_postgresql_version}}"
       postgresql_encoding: "{{xwiki_postgresql_encoding}}"
