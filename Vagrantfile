@@ -7,6 +7,11 @@ Vagrant.configure('2') do |config|
   config.ssh.insert_key = false
   config.ssh.private_key_path = '~/.vagrant.d/insecure_private_key'
 
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 2048
+    # v.cpus = 2
+  end
+
   config.vm.define 'xwiki' do |machine|
     machine.vm.box = "centos/7"
     #machine.vm.box = "ubuntu/precise64"
