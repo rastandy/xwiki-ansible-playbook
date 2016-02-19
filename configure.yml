@@ -11,5 +11,14 @@
     mode: 0600
   notify: service restart tomcat
 
-# Set (httpd_can_network_connect) flag on and keep it persistent across reboots
-- seboolean: name=httpd_can_network_connect state=yes persistent=yes
+- name: Ensure libsemanage-python is installed
+  yum: name=libsemanage-python state=present
+  when: ansible_os_family == "RedHat"
+
+- name: Ensure libsemanage-python is installed
+  apt: name=libsemanage-python state=present
+  when: ansible_os_family == "Debian"
+
+- name: Set (httpd_can_network_connect) flag on and keep it persistent across reboots
+  seboolean: name=httpd_can_network_connect state=yes persistent=yes
+  when: ansible_selinux.status == "enabled"
