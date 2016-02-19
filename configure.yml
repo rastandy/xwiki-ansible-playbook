@@ -1,4 +1,7 @@
 
+- name: Ensure PostgreSQL is started on boot
+  service: name=postgresql-{{ postgresql_version }} enabled=yes
+
 - name: Configure PostgreSQL database connection for XWiki
   template:
     src: templates/hibernate.cfg.xml.j2
