@@ -11,3 +11,7 @@
 - src: https://github.com/rastandy/ansible-java
   name: silpion.java
   version: ee5e9582dad0a517839fd0d6f4852fe6d018271b
+
+- src: https://github.com/geerlingguy/ansible-role-apache
+  name: geerlingguy.apache
+  version: 2b44f305e97f65e2689ac4cbc9e440654e3732ed

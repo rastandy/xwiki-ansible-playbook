@@ -48,3 +48,17 @@
         port_connector: 18080
         port_redirect: 18443
         port_shutdown: 18005
+
+    - role: geerlingguy.apache
+      apache_vhosts:
+        - servername: "{{ servername }}"
+          documentroot: "/var/www/html"
+          extra_parameters: |
+            ProxyRequests   Off
+            ProxyPass / ajp://localhost:18009/
+      # apache_vhosts_ssl:
+      #   - servername: "{{ servername }}"
+      #     documentroot: "/var/www/html"
+      #     certificate_file: "/home/vagrant/example.crt"
+      #     certificate_key_file: "/home/vagrant/example.key"
+      #     certificate_chain_file: "/path/to/certificate_chain.crt"
