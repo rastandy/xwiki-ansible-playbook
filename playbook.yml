@@ -49,16 +49,25 @@
         port_redirect: 18443
         port_shutdown: 18005
 
+    - role: jdauphant.ssl-certs
+
     - role: geerlingguy.apache
+      apache_global_vhost_settings: |
+        SSLProxyEngine on
       apache_vhosts:
         - servername: "{{ servername }}"
           documentroot: "/var/www/html"
           extra_parameters: |
             ProxyRequests   Off
             ProxyPass / ajp://localhost:18009/
-      # apache_vhosts_ssl:
-      #   - servername: "{{ servername }}"
-      #     documentroot: "/var/www/html"
-      #     certificate_file: "/home/vagrant/example.crt"
-      #     certificate_key_file: "/home/vagrant/example.key"
-      #     certificate_chain_file: "/path/to/certificate_chain.crt"
+            ProxyPassReverse / ajp://localhost:18009/
+      apache_vhosts_ssl:
+        - servername: "{{ servername }}"
+          documentroot: "/var/www/html"
+          certificate_file: "{{ ssl_certs_cert_path }}"
+          certificate_key_file: "{{ ssl_certs_privkey_path }}"
+          certificate_chain_file: "{{ ssl_certs_csr_path }}"
+          extra_parameters: |
+            ProxyRequests   Off
+            ProxyPass / ajp://localhost:18009/
+            ProxyPassReverse / ajp://localhost:18009/
