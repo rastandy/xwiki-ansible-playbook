@@ -79,6 +79,12 @@
             ProxyPass / ajp://localhost:18009/
             ProxyPassReverse / ajp://localhost:18009/
 
+    - role: geerlingguy.firewall
+      firewall_allowed_tcp_ports:
+        - "22"
+        - "80"
+        - "443"
+
   handlers:
     - name: Restart tomcat-xwiki
       service:
