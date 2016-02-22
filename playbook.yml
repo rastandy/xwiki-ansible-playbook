@@ -76,3 +76,9 @@
             ProxyRequests   Off
             ProxyPass / ajp://localhost:18009/
             ProxyPassReverse / ajp://localhost:18009/
+
+  handlers:
+    - name: Restart tomcat-xwiki
+      service:
+        name: tomcat-xwiki
+        state: restarted

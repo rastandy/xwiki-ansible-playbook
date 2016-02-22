@@ -9,7 +9,7 @@
     owner: "{{ xwiki_user }}"
     group: "{{ xwiki_group }}"
     mode: 0600
-  notify: service restart tomcat
+  notify: Restart tomcat-xwiki
 
 - name: Ensure libsemanage-python is installed
   yum: name=libsemanage-python state=present

@@ -12,7 +12,7 @@
     dest: "{{ xwiki_path }}/lib"
     owner: "{{ xwiki_user }}"
     group: "{{ xwiki_group }}"
-  notify: service restart tomcat
+  notify: Restart tomcat-xwiki
 
 - name: Download XWiki
   local_action: get_url
@@ -36,4 +36,4 @@
     group: "{{ xwiki_group }}"
     creates: "{{ xwiki_path }}/webapps/ROOT/WEB-INF"
     copy: yes
-  notify: service restart tomcat
+  notify: Restart tomcat-xwiki
