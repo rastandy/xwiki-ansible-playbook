@@ -50,6 +50,8 @@
         port_redirect: 18443
         port_shutdown: 18005
 
+    - role: geerlingguy.apache
+
     - role: jdauphant.ssl-certs
       ssl_certs_country: "EU"
       ssl_certs_locality: "Europe"
