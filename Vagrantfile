@@ -30,7 +30,8 @@ Vagrant.configure('2') do |config|
       ansible.inventory_path = 'vagrant-inventory'
       ansible.host_key_checking = false
       ansible.raw_arguments  = [
-        "--extra-vars=@test_vars.yml"
+        "--extra-vars=@test_vars.yml",
+        "--ask-vault-pass"
       ]
     end
   end

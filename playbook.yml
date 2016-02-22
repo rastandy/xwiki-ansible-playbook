@@ -6,6 +6,7 @@
   vars_files:
     - ./defaults.yml
     - ./vars.yml
+    - ./secrets.yml
 
   tasks:
     - include: ./install.yml
