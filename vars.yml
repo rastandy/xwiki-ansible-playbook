@@ -6,6 +6,15 @@ xwiki_path: "{{ xwiki_tomcat_path }}/catalina/xwiki"
 # filename of XWiki war
 xwiki_filename: xwiki-{{ xwiki_version }}.war
 
+postgresql_default_auth_method: "md5"
+
+# Restrict access to unix socket only to postgres user
+postgresql_unix_socket_permissions: '0770' # begin with 0 to use octal notation
+
+postgresql_pg_hba_default:
+  - { type: local, database: all, user: '{{ postgresql_admin_user }}', address: '', method: 'trust', comment: '' }
+  - { type: host, database: '{{xwiki_database}}', user: '{{xwiki_database_user}}', address: '127.0.0.1/32', method: 'md5', comment: '' }
+
 postgresql_version: "{{ xwiki_postgresql_version }}"
 postgresql_jdbc_driver_filename: "postgresql-{{ postgresql_jdbc_driver_version }}.jar"
 postgresql_jdbc_driver_url: "https://jdbc.postgresql.org/download/{{ postgresql_jdbc_driver_filename }}"
