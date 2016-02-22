@@ -64,9 +64,7 @@
         - servername: "{{ servername }}"
           documentroot: "/var/www/html"
           extra_parameters: |
-            ProxyRequests   Off
-            ProxyPass / ajp://localhost:18009/
-            ProxyPassReverse / ajp://localhost:18009/
+            Redirect / https://{{ servername }}/
       apache_vhosts_ssl:
         - servername: "{{ servername }}"
           documentroot: "/var/www/html"
