@@ -25,7 +25,7 @@ xwiki_tomcat_version: "8.0.32"
 tomcat_redis_sha256sum: 7e23260f2481aca88f89838e91cb9ff00548a28ba5a19a88ff99388c7ee9a9b8
 tomcat_web_xml_schema_version: 3.1
 
-xwiki_tomcat_path: /srv/xwiki
+xwiki_tomcat_path: /var/lib/xwiki
 xwiki_catalina_opts: "-Dfile.encoding=UTF-8 -Xms128m -Xmx1024m -XX:PermSize=64m -XX:MaxPermSize=256m"
 
 ssl_certs_common_name: "{{ servername }}"
