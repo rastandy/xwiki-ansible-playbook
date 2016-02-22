@@ -50,6 +50,12 @@
         port_shutdown: 18005
 
     - role: jdauphant.ssl-certs
+      ssl_certs_country: "EU"
+      ssl_certs_locality: "Europe"
+      ssl_certs_organization: "climateurope"
+      ssl_certs_state: "Europe"
+      ssl_certs_common_name: "{{servername}}"
+      ssl_certs_days: "1825"
 
     - role: geerlingguy.apache
       apache_global_vhost_settings: |
