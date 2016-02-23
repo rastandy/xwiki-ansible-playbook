@@ -22,3 +22,6 @@
 
 - src: https://github.com/geerlingguy/ansible-role-firewall
   name: geerlingguy.firewall
+
+- src: https://github.com/rastandy/postfix
+  name: Rackspace_Automation.postfix
