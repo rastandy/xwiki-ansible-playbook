@@ -3,6 +3,12 @@
 
 # XWiki download base url
 
+# Choose if attachments will be stored in the database (option: hibernate)
+# or on fileysistem (option: file)
+xwiki_store_attachment_hint: file
+xwiki_store_attachment_versioning_hint: "{{xwiki_store_attachment_hint}}"
+xwiki_store_attachment_recyclebin_hint: "{{xwiki_store_attachment_hint}}"
+
 xwiki_version: 7.4.1
 xwiki_download_url: "http://download.forge.ow2.org/xwiki/xwiki-enterprise-web-{{ xwiki_version }}.war"
 xwiki_sha256sum: 1eae8eb8d5e4cce2ee8b87dc43c2b6dd3f959a8c4155b49ab837c2f1831e80f9
