@@ -1,14 +1,13 @@
 ---
 # defaults file for xwiki
 
-# XWiki download base url
-
 # Choose if attachments will be stored in the database (option: hibernate)
 # or on fileysistem (option: file)
 xwiki_store_attachment_hint: file
 xwiki_store_attachment_versioning_hint: "{{xwiki_store_attachment_hint}}"
 xwiki_store_attachment_recyclebin_hint: "{{xwiki_store_attachment_hint}}"
 
+# XWiki download base url
 xwiki_version: 7.4.1
 xwiki_download_url: "http://download.forge.ow2.org/xwiki/xwiki-enterprise-web-{{ xwiki_version }}.war"
 xwiki_sha256sum: 1eae8eb8d5e4cce2ee8b87dc43c2b6dd3f959a8c4155b49ab837c2f1831e80f9
@@ -37,3 +36,6 @@ xwiki_catalina_opts: "-Dfile.encoding=UTF-8 -Xms128m -Xmx1024m -XX:PermSize=64m 
 ssl_certs_common_name: "{{ servername }}"
 ssl_certs_path_owner: "apache"
 ssl_certs_path_group: "apache"
+
+# environment.permanentDirectory where persistent data is stored
+xwiki_environment_permanent_directory: "{{xwiki_tomcat_path}}/persistent_data/"
