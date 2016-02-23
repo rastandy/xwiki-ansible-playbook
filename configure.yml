@@ -11,6 +11,32 @@
     mode: 0600
   notify: Restart tomcat-xwiki
 
+- name: Generate random xwiki.authentication.validationKey
+  command: openssl rand -base64 32
+  register: validationKey
+
+- name: Generate random xwiki.authentication.encryptionKey
+  command: openssl rand -base64 32
+  register: encryptionKey
+
+- name: Configure Xwiki (properties file)
+  template:
+    src: templates/xwiki.properties.j2
+    dest: "{{ xwiki_path }}/webapps/ROOT/WEB-INF/xwiki.properties"
+    owner: "{{ xwiki_user }}"
+    group: "{{ xwiki_group }}"
+    mode: 0600
+  notify: Restart tomcat-xwiki
+
+- name: Configure Xwiki (cfg file)
+  template:
+    src: templates/xwiki.cfg.j2
+    dest: "{{ xwiki_path }}/webapps/ROOT/WEB-INF/xwiki.cfg"
+    owner: "{{ xwiki_user }}"
+    group: "{{ xwiki_group }}"
+    mode: 0600
+  notify: Restart tomcat-xwiki
+
 - name: Ensure libsemanage-python is installed
   yum: name=libsemanage-python state=present
   when: ansible_os_family == "RedHat" and ansible_selinux.status == "enabled"
