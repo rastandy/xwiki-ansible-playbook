@@ -37,3 +37,11 @@
     creates: "{{ xwiki_path }}/webapps/ROOT/WEB-INF"
     copy: yes
   notify: Restart tomcat-xwiki
+
+- name: Install the robots.txt for XWiki
+  copy:
+    src: robots.txt
+    dest: "{{ xwiki_path }}/webapps/ROOT/robots.txt"
+    owner: "{{ xwiki_user }}"
+    group: "{{ xwiki_group }}"
+    mode: 0644
