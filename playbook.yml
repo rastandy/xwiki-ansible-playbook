@@ -76,6 +76,7 @@
           certificate_chain_file: "{{ ssl_certs_csr_path }}"
           extra_parameters: |
             ProxyRequests   Off
+            ProxyPreserveHost On
             ProxyPass / ajp://localhost:18009/
             ProxyPassReverse / ajp://localhost:18009/
 
