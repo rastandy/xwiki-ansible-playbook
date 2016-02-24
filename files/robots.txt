@@ -1,0 +1,37 @@
+User-agent: *
+Disallow: /bin/attach/
+Disallow: /bin/cancel/
+Disallow: /bin/commentadd/
+Disallow: /bin/delattachment/
+Disallow: /bin/delete/
+Disallow: /bin/dot/
+Disallow: /bin/download/
+Disallow: /bin/downloadrev/
+Disallow: /bin/edit/
+Disallow: /bin/export/
+Disallow: /bin/get/
+Disallow: /bin/inline/
+Disallow: /bin/lifeblog/
+Disallow: /bin/login/
+Disallow: /bin/loginerror/
+Disallow: /bin/logout/
+Disallow: /bin/objectremove/
+Disallow: /bin/pdf/
+Disallow: /bin/preview/
+Disallow: /bin/propadd/
+Disallow: /bin/propdelete/
+Disallow: /bin/propupdate/
+Disallow: /bin/register/
+Disallow: /bin/save/
+Disallow: /bin/skin/
+Disallow: /bin/status/
+Disallow: /bin/upload/
+Disallow: /bin/viewattachrev/
+Disallow: /bin/viewrev/
+Disallow: /bin/xmlrpc/
+# It could be also usefull to block certain spaces from crawling,
+# especially if this spaces doesn't provide new content
+Disallow: /bin/view/Main/
+Disallow: /bin/view/
+# on the other hand you would like to have your recent (public) changes included
+Allow: /bin/view/Main/Dashboard
