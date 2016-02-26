@@ -8,10 +8,6 @@
     - ./vars.yml
     - ./secrets.yml
 
-  tasks:
-    - include: ./install.yml
-    - include: ./configure.yml
-
   roles:
     # Database installation and configuration
     - role: ANXS.postgresql
@@ -85,6 +81,10 @@
         - "22"
         - "80"
         - "443"
+
+  tasks:
+    - include: ./install.yml
+    - include: ./configure.yml
 
   handlers:
     - name: Restart tomcat-xwiki
