@@ -33,9 +33,5 @@ tomcat_web_xml_schema_version: 3.1
 xwiki_tomcat_path: /var/lib/xwiki
 xwiki_catalina_opts: "-server -Dfile.encoding=utf-8 -Xms800m -Xmx1480m -XX:MaxPermSize=256m -Djava.awt.headless=true -XX:+UseParallelGC -XX:MaxGCPauseMillis=100"
 
-ssl_certs_common_name: "{{ servername }}"
-ssl_certs_path_owner: "apache"
-ssl_certs_path_group: "apache"
-
 # environment.permanentDirectory where persistent data is stored
 xwiki_environment_permanent_directory: "{{xwiki_tomcat_path}}/persistent_data/"

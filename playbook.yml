@@ -53,14 +53,15 @@
         port_redirect: 18443
         port_shutdown: 18005
 
-    - role: geerlingguy.apache
-
+    # SSL certificate for the web server
     - role: jdauphant.ssl-certs
+      ssl_certs_common_name: "{{ servername }}"
+      ssl_certs_path_owner: "apache"
+      ssl_certs_path_group: "apache"
       ssl_certs_country: "EU"
       ssl_certs_locality: "Europe"
       ssl_certs_organization: "climateurope"
       ssl_certs_state: "Europe"
-      ssl_certs_common_name: "{{servername}}"
       ssl_certs_days: "1825"
 
     - role: geerlingguy.apache
@@ -74,14 +75,16 @@
       apache_vhosts_ssl:
         - servername: "{{ servername }}"
           documentroot: "/var/www/html"
-          certificate_file: "{{ ssl_certs_cert_path }}"
-          certificate_key_file: "{{ ssl_certs_privkey_path }}"
-          certificate_chain_file: "{{ ssl_certs_csr_path }}"
+          certificate_file: "/etc/ssl/{{servername}}/{{servername}}.pem"
+          certificate_key_file: "/etc/ssl/{{servername}}/{{servername}}.key"
+          certificate_chain_file: "/etc/ssl/{{servername}}/{{servername}}.csr"
           extra_parameters: |
             ProxyRequests   Off
             ProxyPreserveHost On
             ProxyPass / ajp://localhost:18009/
             ProxyPassReverse / ajp://localhost:18009/
+
+    - role: rastandy.postfix
 
     - role: geerlingguy.firewall
       firewall_allowed_tcp_ports:

@@ -24,4 +24,4 @@
   name: geerlingguy.firewall
 
 - src: https://github.com/rastandy/postfix
-  name: Rackspace_Automation.postfix
+  name: rastandy.postfix
