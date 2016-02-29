@@ -8,6 +8,13 @@
     - ./vars.yml
     - ./secrets.yml
 
+  pre_tasks:
+    - name: Ensure "apache" user exists
+      yum: name=httpd state=present
+
+    - name: Ensure "postfix" user exists
+      yum: name=postfix state=present
+
   roles:
     # Database installation and configuration
     - role: ANXS.postgresql
