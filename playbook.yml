@@ -85,6 +85,7 @@
             ProxyPassReverse / ajp://localhost:18009/
 
     - role: rastandy.postfix
+      postfix_hostname: "{{ servername }}"
 
     - role: geerlingguy.firewall
       firewall_allowed_tcp_ports:
