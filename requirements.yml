@@ -30,3 +30,6 @@
   name: Stouts.backup
 
 - src: bennojoy.ntp
+
+- src: https://github.com/rastandy/ansible-role-bacula-client
+  name: rastandy.bacula-client
