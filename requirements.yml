@@ -25,3 +25,6 @@
 
 - src: https://github.com/rastandy/postfix
   name: rastandy.postfix
+
+- src: https://github.com/rastandy/Stouts.backup
+  name: Stouts.backup
