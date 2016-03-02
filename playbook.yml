@@ -88,9 +88,12 @@
 
     - role: geerlingguy.firewall
       firewall_allowed_tcp_ports:
-        - "22"
-        - "80"
-        - "443"
+        - "22"   # ssh
+        - "80"   # http
+        - "443"  # https
+        - "9101" # bacula
+        - "9102" # bacula
+        - "9103" # bacula
 
     # Setup the database backup
     - role: Stouts.backup
@@ -107,6 +110,9 @@
           user: postgres
           source: postgresql://{{xwiki_database}}
           target: file:///var/lib/pgsql/{{ xwiki_postgresql_version }}/backups
+
+    # Activate bacula-fd client service
+    - role: rastandy.bacula-client
 
     - role: bennojoy.ntp
 
