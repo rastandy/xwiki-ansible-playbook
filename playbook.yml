@@ -108,6 +108,8 @@
           source: postgresql://{{xwiki_database}}
           target: file:///var/lib/pgsql/{{ xwiki_postgresql_version }}/backups
 
+    - role: bennojoy.ntp
+
   tasks:
     - include: ./install.yml
     - include: ./configure.yml
