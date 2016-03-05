@@ -98,18 +98,26 @@
     # Setup the database backup
     - role: Stouts.backup
       backup_enabled: yes
-      backup_postgres_user: postgres
-      backup_postgres_host: ""
-      backup_max_age: 1M
-      backup_full_max_age: 1M
-      backup_max_full_backups: 60
       backup_profiles:
         - name: xwiki_postgresql
           action: backup
           schedule: 0 4 * * *
-          user: postgres
+          max_age: 1M
+          full_max_age: 1M
+          max_full_backups: 60
+          user: "{{ postgresql_admin_user }}"
+          postgres_host: ""
           source: postgresql://{{xwiki_database}}
           target: file:///var/lib/pgsql/{{ xwiki_postgresql_version }}/backups
+        - name: xwiki
+          action: backup
+          schedule: 0 4 * * *
+          max_age: 1W
+          full_max_age: 1W
+          max_full_backups: 1
+          user: "{{ xwiki_user }}"
+          source: "{{ xwiki_environment_permanent_directory }}"
+          target: file:///{{ xwiki_tomcat_path }}/backups
 
     # Activate bacula-fd client service
     - role: rastandy.bacula-client
