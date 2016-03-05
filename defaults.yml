@@ -35,3 +35,6 @@ xwiki_catalina_opts: "-server -Dfile.encoding=utf-8 -Xms800m -Xmx1480m -XX:MaxPe
 
 # environment.permanentDirectory where persistent data is stored
 xwiki_environment_permanent_directory: "{{xwiki_tomcat_path}}/persistent_data/"
+
+xwiki_validation_key: "PLEASE CHANGE ME AS SOON AS YOU CAN"
+xwiki_encryption_key: "PLEASE CHANGE ME AS SOON AS YOU CAN"

@@ -11,13 +11,13 @@
     mode: 0600
   notify: Restart tomcat-xwiki
 
-- name: Generate random xwiki.authentication.validationKey
-  command: openssl rand -base64 32
-  register: validationKey
+# - name: Generate random xwiki.authentication.validationKey
+#   command: openssl rand -base64 32
+#   register: validationKey
 
-- name: Generate random xwiki.authentication.encryptionKey
-  command: openssl rand -base64 32
-  register: encryptionKey
+# - name: Generate random xwiki.authentication.encryptionKey
+#   command: openssl rand -base64 32
+#   register: encryptionKey
 
 - name: Configure Xwiki (properties file)
   template:
