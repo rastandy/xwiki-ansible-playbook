@@ -30,7 +30,7 @@ Vagrant.configure('2') do |config|
     machine.vm.provision 'ansible' do |ansible|
       ansible.playbook = 'playbook.yml'
       ansible.sudo = true
-      ansible.inventory_path = 'vagrant-inventory'
+      # ansible.inventory_path = 'vagrant-inventory'
       ansible.host_key_checking = false
       ansible.raw_arguments  = [
         "--extra-vars=@test_vars.yml",
