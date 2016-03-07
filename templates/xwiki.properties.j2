@@ -636,7 +636,7 @@ extension.oldflavors=com.xpn.xwiki.products:xwiki-enterprise-manager-wiki-admini
 #-# [Since 6.1M2]
 #-# From email address to use. Not defined by default and needs to be set up when calling the mail API.
 #-# This configuration property can be overridden in XWikiPreferences objects, by using the "admin_email" property name.
-# mail.sender.from = john@doe.com
+mail.sender.from = {{ xwiki_mail_from }}
 
 #-# [Since 6.1M2]
 #-# Username to authenticate on the SMTP server, if needed. By default no authentication is performed.
