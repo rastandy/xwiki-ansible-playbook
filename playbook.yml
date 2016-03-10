@@ -124,6 +124,12 @@
 
     - role: bennojoy.ntp
 
+    - role: rastandy.riemann-server
+      riemann_bind_address: 127.0.0.1
+
+    - role: rastandy.riemann-client
+      riemann_tool_health: true
+
   tasks:
     - include: ./install.yml
     - include: ./configure.yml

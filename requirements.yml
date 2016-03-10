@@ -33,3 +33,9 @@
 
 - src: https://github.com/rastandy/ansible-role-bacula-client
   name: rastandy.bacula-client
+
+- src: https://github.com/rastandy/riemann-server-ansible-role
+  name: rastandy.riemann-server
+
+- src: https://github.com/rastandy/riemann-client-ansible-role
+  name: rastandy.riemann-client
