@@ -126,6 +126,7 @@
 
     - role: rastandy.riemann-server
       riemann_bind_address: 127.0.0.1
+      riemann_extra: true
 
     - role: rastandy.riemann-client
       riemann_tool_health: true
