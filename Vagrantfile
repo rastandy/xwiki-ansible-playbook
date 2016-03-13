@@ -16,7 +16,7 @@ Vagrant.configure('2') do |config|
   end
 
   config.vm.define 'xwiki' do |machine|
-    machine.vm.box = "centos/7"
+    machine.vm.box = "bento/centos-7.2"
     #machine.vm.box = "ubuntu/precise64"
     #machine.vm.box = "debian/jessie64"
     #machine.vm.box = "debian/wheezy64"
