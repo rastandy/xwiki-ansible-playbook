@@ -12,9 +12,8 @@
   name: silpion.java
   version: ee5e9582dad0a517839fd0d6f4852fe6d018271b
 
-- src: https://github.com/geerlingguy/ansible-role-apache
-  name: geerlingguy.apache
-  version: 2b44f305e97f65e2689ac4cbc9e440654e3732ed
+- src: https://github.com/rastandy/ansible-role-apache
+  name: rastandy.apache
 
 - src: https://github.com/rastandy/ansible-role-ssl-certs
   name: jdauphant.ssl-certs
@@ -39,3 +38,6 @@
 
 - src: https://github.com/rastandy/riemann-client-ansible-role
   name: rastandy.riemann-client
+
+- src: https://github.com/rastandy/ansible-collectd
+  name: rastandy.collectd

@@ -64,7 +64,7 @@
       ssl_certs_state: "Europe"
       ssl_certs_days: "1825"
 
-    - role: geerlingguy.apache
+    - role: rastandy.apache
       apache_global_vhost_settings: |
         SSLProxyEngine on
       apache_vhosts:
