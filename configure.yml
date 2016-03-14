@@ -80,9 +80,8 @@
   template:
     src: templates/riemann/{{ item }}.clj.j2
     dest: "{{ riemann_conf_dir }}/conf.d/{{ item }}.clj"
-    owner: riemann
-    group: riemann
-    mode: 0600
+    owner: root
+    group: root
   with_items:
     - helpers
     - thresholds
