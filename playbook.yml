@@ -129,7 +129,50 @@
       riemann_extra: true
 
     - role: rastandy.riemann-client
-      riemann_tool_health: true
+      riemann_tool_health: false
+
+    - role: rastandy.collectd
+      collectd_global_options_default_interval: 5
+      collectd_pkg_plugins:
+        - collectd-write_riemann
+        - collectd-postgresql
+      collectd_plugins_custom:
+        # Load df plugin
+        - options:
+          - LoadPlugin: write_riemann
+        # Configure the df plugin
+        - sections:
+          - name: Include
+            param: "/etc/collectd.d"
+            content:
+              - options:
+                - Filter: "*.conf"
+          - name: Plugin
+            param: write_riemann
+            content:
+              - options:
+                - Tag: "collectd"
+              - sections:
+                - name: Node
+                  param: "center"
+                  content:
+                    # Options of the plugin
+                    - options:
+                      - Host: 127.0.0.1
+                      - Port: 5555
+                      - Protocol: TCP
+                      - StoreRates: true
+                      - AlwaysAppendDS: false
+                - name: Node
+                  param: "center-unrated"
+                  content:
+                    - options:
+                      # Options of the plugin
+                      - Host: 127.0.0.1
+                      - Port: 5555
+                      - Protocol: TCP
+                      - StoreRates: false
+                      - AlwaysAppendDS: false
 
   tasks:
     - include: ./install.yml
