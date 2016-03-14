@@ -1,0 +1,28 @@
+# -*- apache -*-
+# Copyright (C) 2016  Andrea Russo <andrea.russo@cmcc.org>
+#
+# This work is free. You can redistribute it and/or modify it under the
+# terms of the Do What The Fuck You Want To Public License, Version 2,
+# as published by Sam Hocevar. See the COPYING file for more details.
+
+LoadPlugin aggregation
+
+<Plugin "aggregation">
+    <Aggregation>
+        Plugin "cpu"
+        Type "cpu"
+
+        SetPlugin "cpu"
+        SetPluginInstance "%{aggregation}"
+
+        GroupBy "Host"
+        GroupBy "TypeInstance"
+
+        CalculateNum false
+        CalculateSum false
+        CalculateAverage true
+        CalculateMinimum false
+        CalculateMaximum false
+        CalculateStddev false
+    </Aggregation>
+</Plugin>

@@ -1,0 +1,67 @@
+# -*- apache -*-
+#
+# This work is free. You can redistribute it and/or modify it under the
+# terms of the Do What The Fuck You Want To Public License, Version 2,
+# as published by Sam Hocevar. See the COPYING file for more details.
+
+LoadPlugin match_regex
+LoadPlugin target_scale
+
+PreCacheChain "PreCache"
+PostCacheChain "PostCache"
+
+<Chain "PreCache">
+    <Rule "scale_to_gb">
+        <Match "regex">
+            Type "^(memory|swap)$"
+        </Match>
+        <Target "scale">
+            Factor .000000000931322574615478515625
+        </Target>
+    </Rule>
+
+    <Rule "scale_to_kb">
+        <Match "regex">
+            Type "^if_octets$"
+        </Match>
+        <Target "scale">
+            Factor .0009765625
+        </Target>
+    </Rule>
+</Chain>
+
+<Chain "PostCache">
+    <Rule "sshd_counters">
+        <Match "regex">
+            TypeInstance "^sshd-"
+        </Match>
+        <Target "write">
+            Plugin "write_riemann/center-unrated"
+        </Target>
+        <Target "stop">
+        </Target>
+    </Rule>
+    <Rule "postfix_counters">
+        <Match "regex">
+            PluginInstance "postfix"
+        </Match>
+        <Target "write">
+            Plugin "write_riemann/center-unrated"
+        </Target>
+        <Target "stop">
+        </Target>
+    </Rule>
+    <Rule>
+        <Match regex>
+            Plugin "^cpu$"
+            PluginInstance "^[0-9]+$"
+        </Match>
+        <Target write>
+            Plugin "aggregation"
+        </Target>
+        Target stop
+    </Rule>
+    <Target "write">
+        Plugin "write_riemann/center"
+    </Target>
+</Chain>

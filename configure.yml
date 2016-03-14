@@ -51,3 +51,40 @@
 
 - name: Allow access to XWiki Tomcat instance only to the XWiki user
   file: path="{{xwiki_tomcat_path}}" owner="{{xwiki_user}}" group="{{xwiki_user}}" mode=0770
+
+- name: Ensure the collectd.d directory is present
+  file:
+    path: "/etc/collectd.d"
+    state: directory
+    owner: root
+    group: root
+
+- name: Copy configuration files for collectd
+  template:
+    src: templates/collectd/{{ item }}.conf.j2
+    dest: "/etc/collectd.d/{{ item }}.conf"
+    owner: root
+    group: root
+    mode: 0600
+  with_items:
+    - aggregation
+    - chains
+    - df
+    - interface
+    - plugins
+    - postgresql
+    - tail
+  notify: Restart collectd service
+
+- name: Copy configuration files for Riemann
+  template:
+    src: templates/riemann/{{ item }}.clj.j2
+    dest: "{{ riemann_conf_dir }}/conf.d/{{ item }}.clj"
+    owner: riemann
+    group: riemann
+    mode: 0600
+  with_items:
+    - helpers
+    - thresholds
+    - setup
+  notify: restart riemann
