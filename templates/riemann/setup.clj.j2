@@ -9,6 +9,14 @@
 (include "helpers.clj")
 (include "thresholds.clj")
 
+(def email (mailer {:host "localhost"
+                    :from "riemann@climateurope.eu"}))
+
+(def tell-ops
+  (throttle 1000 3600
+            (rollup 3 3600
+                    (email "andrea.russo@cmcc.it")))  )
+
 (def default-ttl 30)
 
 (let [index (smap (threshold-check thresholds)
@@ -78,9 +86,14 @@
                   (clock-skew
                    (with-but-collectd {:service "clock skew"
                                        :tags ["internal"]}
-                     (rate 5 index))))]
-
+                     (rate 5 index))))
+           alert-ops
+           (smap (threshold-check thresholds)
+                 (where (state "critical")
+                        tell-ops
+                        #(info %)))]
        (where (not (state "expired"))
+              alert-ops
               memory-and-load-summary
               total-network-traffic
               distinct-hosts
