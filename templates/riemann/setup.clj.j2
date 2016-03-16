@@ -91,7 +91,8 @@
            (smap (threshold-check thresholds)
                  (where (state "critical")
                         tell-ops
-                        #(info %)))]
+                        (throttle 100 60
+                                  #(info %))))]
        (where (not (state "expired"))
               alert-ops
               memory-and-load-summary
