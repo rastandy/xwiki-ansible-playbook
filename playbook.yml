@@ -118,17 +118,6 @@
           user: "{{ xwiki_user }}"
           source: "{{ xwiki_environment_permanent_directory }}"
           target: file:///{{ xwiki_tomcat_path }}/backups
-        - name: xwiki_purge
-          action: purge
-          params:
-            - "--force"
-          schedule: 0 5 * * *
-          max_age: 1W
-          full_max_age: 1W
-          max_full_backups: 1
-          user: "{{ xwiki_user }}"
-          source: "{{ xwiki_environment_permanent_directory }}"
-          target: file:///{{ xwiki_tomcat_path }}/backups
 
     # Activate bacula-fd client service
     - role: rastandy.bacula-client

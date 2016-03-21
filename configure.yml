@@ -52,6 +52,14 @@
 - name: Allow access to XWiki Tomcat instance only to the XWiki user
   file: path="{{xwiki_tomcat_path}}" owner="{{xwiki_user}}" group="{{xwiki_user}}" mode=0770
 
+- name: Cronjob to prune old xwiki filesystem backups
+  cron:
+    name: "XWiki filesystem backup prune"
+    minute: "0"
+    hour: "5"
+    user: "{{ xwiki_user }}"
+    job: "/usr/local/bin/duply xwiki purge --force >> /var/log/duply/xwiki.log 2>&1"
+
 - name: Ensure the collectd.d directory is present
   file:
     path: "/etc/collectd.d"
