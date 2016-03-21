@@ -55,10 +55,12 @@
 - name: Cronjob to prune old xwiki filesystem backups
   cron:
     name: "XWiki filesystem backup prune"
+    state: present
     minute: "0"
     hour: "5"
     user: "{{ xwiki_user }}"
     job: "/usr/local/bin/duply xwiki purge --force >> /var/log/duply/xwiki.log 2>&1"
+    cron_file: "xwiki-purge"
 
 - name: Ensure the collectd.d directory is present
   file:
