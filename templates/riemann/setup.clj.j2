@@ -15,7 +15,7 @@
 (def tell-ops
   (throttle 1000 3600
             (rollup 3 3600
-                    (email "andrea.russo@cmcc.it")))  )
+                    (email "{{ administrator_email }}"))))
 
 (def default-ttl 30)
 
