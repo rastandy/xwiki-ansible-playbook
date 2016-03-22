@@ -140,7 +140,7 @@
         # Load df plugin
         - options:
           - LoadPlugin: write_riemann
-        # Configure the df plugin
+        # Include the /etc/collect.d directory
         - sections:
           - name: Include
             param: "/etc/collectd.d"
