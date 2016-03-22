@@ -179,7 +179,4 @@
     - include: ./configure.yml
 
   handlers:
-    - name: Restart tomcat-xwiki
-      service:
-        name: tomcat-xwiki
-        state: restarted
+    - include: ./handlers.yml

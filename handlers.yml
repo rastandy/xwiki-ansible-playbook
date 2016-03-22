@@ -1,0 +1,7 @@
+- name: Restart tomcat-xwiki
+  service:
+    name: tomcat-xwiki
+    state: restarted
+
+- name: New mail aliases
+  command: /usr/bin/newaliases
