@@ -41,3 +41,6 @@
 
 - src: https://github.com/rastandy/ansible-collectd
   name: rastandy.collectd
+
+- src: https://github.com/rastandy/libreoffice-server-ansible-role
+  name: rastandy.libreoffice-server
