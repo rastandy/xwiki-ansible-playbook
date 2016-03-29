@@ -236,17 +236,17 @@ environment.permanentDirectory={{xwiki_environment_permanent_directory}}
 #-# Type of the openoffice server instance used by officeimporter component.
 #-# 0 - Internally managed server instance. (Default)
 #-# 1 - Externally managed (local) server instance.
-# openoffice.serverType=0
+openoffice.serverType=1
 
 #-# [Since 1.9M2]
 #-# Port number used for connecting to the openoffice server instance.
 #-# Default port is 8100 
-# openoffice.serverPort=8100
+openoffice.serverPort={{ libreoffice_listen_port }}
 
 #-# [Since 1.9M2]
 #-# If the openoffice server should be started / connected upon XE start.
 #-# Default value is false
-# openoffice.autoStart=false
+openoffice.autoStart=true
 
 #-# [Since 1.8RC3]
 #-# Path to openoffice installation (serverType:0 only).

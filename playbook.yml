@@ -37,6 +37,10 @@
       oracle_java_distribution: srv
       oracle_java_version: "{{ xwiki_java_version }}"
 
+    - role: rastandy.libreoffice-server
+      libreoffice_user: "{{ xwiki_user }}"
+      libreoffice_group: "{{ xwiki_group }}"
+
     - role: groover.tomcat
       tomcat_version: "{{ xwiki_tomcat_version }}"
       tomcat_instances:
