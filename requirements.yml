@@ -17,7 +17,6 @@
 
 - src: https://github.com/rastandy/ansible-role-ssl-certs
   name: jdauphant.ssl-certs
-  version: fc818f18d24df70b085955d4d9cc8c99748df4f9
 
 - src: https://github.com/geerlingguy/ansible-role-firewall
   name: geerlingguy.firewall
