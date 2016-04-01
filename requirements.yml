@@ -13,7 +13,6 @@
 
 - src: https://github.com/rastandy/ansible-java
   name: silpion.java
-  version: ee5e9582dad0a517839fd0d6f4852fe6d018271b
 
 - src: https://github.com/rastandy/ansible-role-apache
   name: rastandy.apache
