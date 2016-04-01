@@ -1,6 +1,7 @@
 
 - name: Download PostgreSQL JDBC Driver
   local_action: get_url
+  become: false
   args:
     url: "{{ postgresql_jdbc_driver_url }}"
     dest: "{{ lib_persistent_data_path_local }}/{{ postgresql_jdbc_driver_filename }}"
@@ -16,6 +17,7 @@
 
 - name: Download XWiki
   local_action: get_url
+  become: false
   args:
     url: "{{ xwiki_download_url }}"
     dest: "{{ lib_persistent_data_path_local }}/{{ xwiki_filename }}"
