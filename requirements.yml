@@ -8,6 +8,9 @@
   name: groover.tomcat
   version: 72a7fd4a5f68bed05503abe3e33361c051419c66
 
+- src: https://github.com/rastandy/ansible-util
+  name: silpion.util
+
 - src: https://github.com/rastandy/ansible-java
   name: silpion.java
   version: ee5e9582dad0a517839fd0d6f4852fe6d018271b
