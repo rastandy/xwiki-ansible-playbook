@@ -61,10 +61,12 @@
     user: "{{ xwiki_user }}"
     job: "/usr/local/bin/duply xwiki purge --force >> /var/log/duply/xwiki.log 2>&1"
     cron_file: "xwiki-purge"
+  when: backup_service
 
 - name: Ensure operators receive local root emails
   lineinfile: "dest=/etc/aliases regexp='^root: ' line='root: {{ administrator_email }}' state=present"
   notify: New mail aliases
+  when: postfix_service
 
 - name: Ensure the collectd.d directory is present
   file:
@@ -72,6 +74,7 @@
     state: directory
     owner: root
     group: root
+  when: monitoring_service
 
 - name: Copy configuration files for collectd
   template:
@@ -89,6 +92,7 @@
     - postgresql
     - tail
   notify: Restart collectd service
+  when: monitoring_service
 
 - name: Copy configuration files for Riemann
   template:
@@ -101,3 +105,4 @@
     - thresholds
     - setup
   notify: restart riemann
+  when: monitoring_service

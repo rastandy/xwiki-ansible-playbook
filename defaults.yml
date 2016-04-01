@@ -1,6 +1,12 @@
 ---
 # defaults file for xwiki
 
+monitoring_service: false
+backup_service: false
+libreoffice_service: false
+firewall_service: false
+postfix_service: false
+
 # Choose if attachments will be stored in the database (option: hibernate)
 # or on fileysistem (option: file)
 xwiki_store_attachment_hint: file

@@ -14,6 +14,7 @@
 
     - name: Ensure "postfix" user exists
       yum: name=postfix state=present
+      when: postfix_service
 
   roles:
     # Database installation and configuration
@@ -40,6 +41,7 @@
     - role: rastandy.libreoffice-server
       libreoffice_user: "{{ xwiki_user }}"
       libreoffice_group: "{{ xwiki_group }}"
+      when: libreoffice_service
 
     - role: groover.tomcat
       tomcat_version: "{{ xwiki_tomcat_version }}"
@@ -89,6 +91,7 @@
             ProxyPassReverse / ajp://localhost:18009/
 
     - role: rastandy.postfix
+      when: postfix_service
 
     - role: geerlingguy.firewall
       firewall_allowed_tcp_ports:
@@ -98,6 +101,7 @@
         - "9101" # bacula
         - "9102" # bacula
         - "9103" # bacula
+      when: firewall_service
 
     # Setup the database backup
     - role: Stouts.backup
@@ -122,18 +126,22 @@
           user: "{{ xwiki_user }}"
           source: "{{ xwiki_environment_permanent_directory }}"
           target: file:///{{ xwiki_tomcat_path }}/backups
+      when: backup_service
 
     # Activate bacula-fd client service
     - role: rastandy.bacula-client
+      when: backup_service
 
     - role: bennojoy.ntp
 
     - role: rastandy.riemann-server
       riemann_bind_address: 127.0.0.1
       riemann_extra: true
+      when: monitoring_service
 
     - role: rastandy.riemann-client
       riemann_tool_health: false
+      when: monitoring_service
 
     - role: rastandy.collectd
       collectd_global_options_default_interval: 5
@@ -177,6 +185,7 @@
                       - Protocol: TCP
                       - StoreRates: false
                       - AlwaysAppendDS: false
+      when: monitoring_service
 
   tasks:
     - include: ./install.yml
