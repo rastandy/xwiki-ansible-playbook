@@ -5,7 +5,8 @@ monitoring_service: false
 backup_service: false
 libreoffice_service: false
 firewall_service: false
-postfix_service: false
+postfix_service: true
+xwiki_colojure_scripting: true
 
 # Choose if attachments will be stored in the database (option: hibernate)
 # or on fileysistem (option: file)
@@ -44,5 +45,15 @@ xwiki_environment_permanent_directory: "{{xwiki_tomcat_path}}/persistent_data/"
 
 # xwiki_validation_key: "PLEASE CHANGE ME AS SOON AS YOU CAN"
 # xwiki_encryption_key: "PLEASE CHANGE ME AS SOON AS YOU CAN"
+
+xwiki_clojure_version: 1.8.0
+xwiki_clojure_filename: "clojure-{{ xwiki_clojure_version }}.jar"
+xwiki_clojure_download_url: "http://search.maven.org/remotecontent?filepath=org/clojure/clojure/{{ xwiki_clojure_version }}/{{ xwiki_clojure_filename }}"
+xwiki_clojure_sha256sum: 061a7f1fe4f1a6c68852a1e2f407966e9058feb0d77c870f0725e7606fd360a8
+
+xwiki_clojure_jsr223_version: "v-0.1.0"
+xwiki_clojure_jsr223_filename: "clj-jsr223.jar"
+xwiki_clojure_jsr223_download_url: "https://github.com/rastandy/clj-jsr223/releases/download/{{ xwiki_clojure_jsr223_version }}/{{ xwiki_clojure_jsr223_filename }}"
+xwiki_clojure_jsr223_sha256sum: b7eab1434f278c9282413c947fbddd4b363602369e17d599c44cefee2fda2847
 
 riemann_version:      0.2.10

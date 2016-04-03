@@ -47,3 +47,32 @@
     owner: "{{ xwiki_user }}"
     group: "{{ xwiki_group }}"
     mode: 0644
+
+- name: Download clojure and the clojure JSR 223 compatibility library
+  local_action: get_url
+  become: false
+  args:
+    url: "{{ item.url }}"
+    dest: "{{ lib_persistent_data_path_local }}/{{ item.filename }}"
+    checksum: "{{ item.checksum }}"
+  with_items:
+    - url: "{{ xwiki_clojure_download_url }}"
+      checksum: "sha256:{{ xwiki_clojure_sha256sum }}"
+      filename: "{{ xwiki_clojure_filename }}"
+    - url: "{{ xwiki_clojure_jsr223_download_url }}"
+      checksum: "sha256:{{ xwiki_clojure_jsr223_sha256sum }}"
+      filename: "{{ xwiki_clojure_jsr223_filename }}"
+  when: xwiki_colojure_scripting
+
+- name: Install clojure and the clojure JSR 223 compatibily library
+  copy:
+    src: "{{ lib_persistent_data_path_local }}/{{ item }}"
+    dest: "{{ xwiki_path }}/webapps/ROOT/WEB-INF/lib/"
+    owner: "{{ xwiki_user }}"
+    group: "{{ xwiki_group }}"
+    mode: 0644
+  with_items:
+      - "{{ xwiki_clojure_filename }}"
+      - "{{ xwiki_clojure_jsr223_filename }}"
+  when: xwiki_colojure_scripting
+  notify: Restart tomcat-xwiki
