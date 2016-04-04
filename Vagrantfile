@@ -8,7 +8,7 @@ Vagrant.configure('2') do |config|
   config.ssh.private_key_path = '~/.vagrant.d/insecure_private_key'
 
   # Setup DNS name with landrush plugin
-  # config.landrush.enabled = true
+  config.landrush.enabled = true
 
   config.vm.provider "virtualbox" do |v|
     v.memory = 2048
@@ -26,7 +26,7 @@ Vagrant.configure('2') do |config|
     machine.vm.network :private_network, ip: '192.168.88.22'
     machine.vm.network "forwarded_port", host_ip: "127.0.0.1", guest: 80, host: 8081
     machine.vm.network "forwarded_port", host_ip: "127.0.0.1", guest: 5432, host: 15432
-    machine.vm.hostname = 'xwiki.local'
+    machine.vm.hostname = "xwiki.vagrant.test"
     machine.vm.provision 'ansible' do |ansible|
       ansible.playbook = 'playbook.yml'
       ansible.sudo = true
