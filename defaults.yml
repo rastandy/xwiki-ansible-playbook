@@ -9,6 +9,12 @@ firewall_service: false
 postfix_service: true
 xwiki_colojure_scripting: true
 
+xwiki_user: xwiki
+xwiki_group: xwiki
+
+xwiki_database: "{{ xwiki_user }}"
+xwiki_database_user: "{{ xwiki_user }}"
+
 # Choose if attachments will be stored in the database (option: hibernate)
 # or on fileysistem (option: file)
 xwiki_store_attachment_hint: file
@@ -20,16 +26,10 @@ xwiki_version: 7.4.1
 xwiki_download_url: "http://download.forge.ow2.org/xwiki/xwiki-enterprise-web-{{ xwiki_version }}.war"
 xwiki_sha256sum: 1eae8eb8d5e4cce2ee8b87dc43c2b6dd3f959a8c4155b49ab837c2f1831e80f9
 
-xwiki_user: xwiki
-xwiki_group: xwiki
-
 xwiki_postgresql_version: 9.5
 xwiki_postgresql_encoding: 'UTF-8'
 postgresql_jdbc_driver_version: "9.4.1207"
 postgresql_jdbc_driver_sha256sum: c85381c4b7f9c89e237f8d148b27530ea049b56a6d0159cec42bea38139f991c
-
-xwiki_database: "{{ xwiki_user }}"
-xwiki_database_user: "{{ xwiki_user }}"
 
 xwiki_java_version: "8u66"
 
