@@ -8,7 +8,9 @@ Vagrant.configure('2') do |config|
   config.ssh.private_key_path = '~/.vagrant.d/insecure_private_key'
 
   # Setup DNS name with landrush plugin
-  # config.landrush.enabled = true
+  if Vagrant.has_plugin?("landrush")
+    config.landrush.enabled = true
+  end
 
   config.vm.provider "virtualbox" do |v|
     v.memory = 2048
