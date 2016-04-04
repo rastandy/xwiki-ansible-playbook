@@ -6,7 +6,6 @@
   vars_files:
     - ./defaults.yml
     - ./vars.yml
-    - ./secrets.yml
 
   pre_tasks:
     - name: Ensure "apache" user exists
