@@ -1,6 +1,7 @@
 ---
 # defaults file for xwiki
 
+apache_service: false
 monitoring_service: false
 backup_service: false
 libreoffice_service: false

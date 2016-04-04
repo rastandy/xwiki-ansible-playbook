@@ -11,6 +11,7 @@
   pre_tasks:
     - name: Ensure "apache" user exists
       yum: name=httpd state=present
+      when: apache_service
 
     - name: Ensure "postfix" user exists
       yum: name=postfix state=present
@@ -89,6 +90,7 @@
             ProxyPreserveHost On
             ProxyPass / ajp://localhost:18009/
             ProxyPassReverse / ajp://localhost:18009/
+      when: apache_service
 
     - role: rastandy.postfix
       when: postfix_service

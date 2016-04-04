@@ -48,6 +48,7 @@
 - name: Set (httpd_can_network_connect) flag on and keep it persistent across reboots
   seboolean: name=httpd_can_network_connect state=yes persistent=yes
   when: ansible_selinux.status == "enabled"
+  when: apache_service
 
 - name: Allow access to XWiki Tomcat instance only to the XWiki user
   file: path="{{xwiki_tomcat_path}}" owner="{{xwiki_user}}" group="{{xwiki_user}}" mode=0770
