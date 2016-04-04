@@ -70,6 +70,7 @@
       ssl_certs_organization: "climateurope"
       ssl_certs_state: "Europe"
       ssl_certs_days: "1825"
+      when: apache_service
 
     - role: rastandy.apache
       apache_global_vhost_settings: |
