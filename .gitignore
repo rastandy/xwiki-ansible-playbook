@@ -4,7 +4,6 @@
 /pg_dump.sh
 /pg_restore.sh
 /*.pg_dump
-/host_vars/
 /data/
 /.sass-cache/
 /riemann-dash/
