@@ -1,7 +1,8 @@
 XWiki Playbook
 ==============
 
-Ansible playbook to install XWiki Enterprise with PostgreSQL as Database backend.
+Ansible playbook to install XWiki Enterprise in the Apache Tomcat
+container with PostgreSQL as Database backend.
 
 ## Installation
 
@@ -29,20 +30,19 @@ The playbook variables and default values.
 
 ## Testing
 
-This playbook ships with a Vagrant file for testing puropuse. If you
-want to install quickly an XWiki instance in a virtual machine, you
-need Vagrant and Virtualbox installed on your machine.
-
-After installing them throw a:
+This playbook ships with a Vagrant file for testing purpouse. If you
+want to take advantage of it, just install Vagrant and Virtualbox on
+your machine and you should be able to setup a VM with XWiki up and
+running by just issuing this shell command from the playbook
+directory:
 
 ```shell
 vagrant up
 
 ```
 
-in your shell from the directory where the playbook resides and after
-Vagrant and Ansible finish their job, you should have your XWiki
-instance up and running at this url:
+After that, you should be able to browse your XWiki instance at the
+following url:
 
 http://192.168.88.22:18080
 
