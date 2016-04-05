@@ -48,7 +48,7 @@
 - name: Set (httpd_can_network_connect) flag on and keep it persistent across reboots
   seboolean: name=httpd_can_network_connect state=yes persistent=yes
   when: ansible_selinux.status == "enabled"
-  when: apache_service
+  when: xwiki_apache_service
 
 - name: Allow access to XWiki Tomcat instance only to the XWiki user
   file: path="{{xwiki_tomcat_path}}" owner="{{xwiki_user}}" group="{{xwiki_user}}" mode=0770
@@ -62,12 +62,12 @@
     user: "{{ xwiki_user }}"
     job: "/usr/local/bin/duply xwiki purge --force >> /var/log/duply/xwiki.log 2>&1"
     cron_file: "xwiki-purge"
-  when: backup_service
+  when: xwiki_backup_service
 
 - name: Ensure operators receive local root emails
   lineinfile: "dest=/etc/aliases regexp='^root: ' line='root: {{ administrator_email }}' state=present"
   notify: New mail aliases
-  when: postfix_service
+  when: xwiki_postfix_service
 
 - name: Ensure the collectd.d directory is present
   file:
@@ -75,7 +75,7 @@
     state: directory
     owner: root
     group: root
-  when: monitoring_service
+  when: xwiki_monitoring_service
 
 - name: Copy configuration files for collectd
   template:
@@ -93,7 +93,7 @@
     - postgresql
     - tail
   notify: Restart collectd service
-  when: monitoring_service
+  when: xwiki_monitoring_service
 
 - name: Copy configuration files for Riemann
   template:
@@ -106,4 +106,4 @@
     - thresholds
     - setup
   notify: restart riemann
-  when: monitoring_service
+  when: xwiki_monitoring_service

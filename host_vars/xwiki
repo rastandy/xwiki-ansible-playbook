@@ -13,3 +13,11 @@ postfix_sasl_domain: "test.com"
 postfix_sasl_password: "mysasluserpassword"
 postfix_tls_support: "yes"
 bacula_password: "mybaculapassword"
+
+xwiki_apache_service: true
+xwiki_monitoring_service: true
+xwiki_backup_service: true
+xwiki_libreoffice_service: true
+xwiki_firewall_service: true
+xwiki_postfix_service: true
+xwiki_colojure_scripting: true

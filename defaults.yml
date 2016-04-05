@@ -1,13 +1,13 @@
 ---
 # defaults file for xwiki
 
-apache_service: false
-monitoring_service: false
-backup_service: false
-libreoffice_service: false
-firewall_service: false
-postfix_service: true
-xwiki_colojure_scripting: true
+# xwiki_apache_service: false
+# xwiki_monitoring_service: false
+# xwiki_backup_service: false
+# xwiki_libreoffice_service: false
+# xwiki_firewall_service: false
+# xwiki_postfix_service: true
+# xwiki_colojure_scripting: true
 
 xwiki_user: xwiki
 xwiki_group: xwiki
