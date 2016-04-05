@@ -6,8 +6,8 @@ container with PostgreSQL as Database backend.
 
 ## Installation
 
-First of all, you need to install the dependencies for this playbook
-by issuing this command:
+First, you need to install the dependencies for this playbook by
+issuing this command:
 
 ```shell
 ansible-galaxy install -p roles --role-file=requirements.yml
@@ -21,12 +21,6 @@ git submodule init
 git submodule update
 
 ```
-
-## Configuration
-
-The playbook variables and default values.
-
-
 
 ## Testing
 
@@ -51,7 +45,9 @@ instance by pointing your browser to this url:
 
 http://xwiki.vagrant.test:18080
 
-Enjoy it.
+## Customization
+
+The playbook variables and default values.
 
 ## Licence
 
