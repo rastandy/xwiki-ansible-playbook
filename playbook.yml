@@ -130,7 +130,7 @@
         - "9101" # bacula
         - "9102" # bacula
         - "9103" # bacula
-      when: xwiki_firewall_service
+      when: xwiki_firewall_service and not xwiki_debug
 
     # Setup the database backup
     - role: Stouts.backup
