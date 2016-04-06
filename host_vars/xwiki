@@ -1,9 +1,0 @@
----
-
-xwiki_apache_service: true
-xwiki_monitoring_service: true
-xwiki_backup_service: true
-xwiki_libreoffice_service: true
-xwiki_firewall_service: true
-xwiki_postfix_service: true
-xwiki_colojure_scripting: true

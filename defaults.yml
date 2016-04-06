@@ -1,28 +1,6 @@
 ---
 # defaults file for xwiki
-
-servername: "xwiki.example.org"
-administrator_email: "root@example.org"
-xwiki_mail_from: "no-reply@example.org"
-xwiki_validation_key: "Mj4mJmsc+ste5AstxXB8lhg/r/9QzS9LurZADDigm2Q="
-xwiki_encryption_key: "L3sqJXgVcuW/zxGnjpVGmyYuDtxp751sEKHtFBYgGHU="
-xwiki_database_user_pass: "mydatabasepassword"
-postfix_hostname: "{{ servername }}"
-postfix_relayhost: "smtp.example.org"
-postfix_relayhost_port: "587"
-postfix_sasl_user: "test"
-postfix_sasl_domain: "example.org"
-postfix_sasl_password: "mysasluserpassword"
-postfix_tls_support: "yes"
-bacula_password: "mybaculapassword"
-
-xwiki_apache_service: false
-xwiki_monitoring_service: false
-xwiki_backup_service: false
-xwiki_libreoffice_service: false
-xwiki_firewall_service: false
-xwiki_postfix_service: true
-xwiki_colojure_scripting: true
+xwiki_debug: false
 
 xwiki_user: xwiki
 xwiki_group: xwiki
