@@ -4,10 +4,16 @@
   become: yes
 
   vars_files:
-    - ./defaults.yml
-    - ./vars.yml
+    - defaults.yml
+    - vars.yml
 
   pre_tasks:
+    - stat: path=host_vars/{{ ansible_hostname }}
+      register: host_vars_file
+
+    - include_vars: host_vars/{{ ansible_hostname }}
+      when: host_vars_file.stat.exists
+
     - name: Ensure "apache" user exists
       yum: name=httpd state=present
       when: xwiki_apache_service
