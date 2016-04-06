@@ -1,18 +1,4 @@
 ---
-servername: "xwiki-test.local"
-administrator_email: "root@test.com"
-xwiki_mail_from: "no-reply@test.com"
-xwiki_validation_key: "Mj4mJmsc+ste5AstxXB8lhg/r/9QzS9LurZADDigm2Q="
-xwiki_encryption_key: "L3sqJXgVcuW/zxGnjpVGmyYuDtxp751sEKHtFBYgGHU="
-xwiki_database_user_pass: "mydatabasepassword"
-postfix_hostname: "{{ servername }}"
-postfix_relayhost: "smtp.test.com"
-postfix_relayhost_port: "587"
-postfix_sasl_user: "test"
-postfix_sasl_domain: "test.com"
-postfix_sasl_password: "mysasluserpassword"
-postfix_tls_support: "yes"
-bacula_password: "mybaculapassword"
 
 xwiki_apache_service: true
 xwiki_monitoring_service: true
