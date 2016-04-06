@@ -8,12 +8,10 @@
     - vars.yml
 
   pre_tasks:
-    - local_action: stat path=host_vars/{{ ansible_hostname }}
-      become: false
-      register: host_vars_file
-
-    - include_vars: host_vars/{{ ansible_hostname }}
-      when: host_vars_file.stat.exists
+    - include_vars: "{{ item }}"
+      with_first_found:
+        - "host_vars/{{ ansible_hostname }}"
+        - "host_vars/default"
 
     - name: Ensure "apache" user exists
       yum: name=httpd state=present
