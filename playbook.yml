@@ -118,6 +118,8 @@
       when: xwiki_apache_service
 
     - role: rastandy.postfix
+      postfix_tls_cert_file: "{{ xwiki_certificate_file }}"
+      postfix_tls_key_file: "{{ xwiki_certificate_key_file }}"
       when: xwiki_postfix_service
 
     - role: geerlingguy.firewall
