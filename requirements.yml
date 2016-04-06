@@ -17,6 +17,9 @@
 - src: https://github.com/rastandy/ansible-role-apache
   name: rastandy.apache
 
+- src: https://github.com/rastandy/ansible-letsencrypt
+  name: rastandy.letsencrypt
+
 - src: https://github.com/rastandy/ansible-role-ssl-certs
   name: jdauphant.ssl-certs
 

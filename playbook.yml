@@ -23,7 +23,28 @@
       yum: name=postfix state=present
       when: xwiki_postfix_service
 
+    - name: Set SSL certs path
+      set_fact:
+        xwiki_certificate_file: "/etc/letsencrypt/live/{{servername}}/cert.pem"
+        xwiki_certificate_key_file: "/etc/letsencrypt/live/{{servername}}/privkey.pem"
+        xwiki_certificate_chain_file: "/etc/letsencrypt/live/{{servername}}/chain.pem"
+      when: not xwiki_debug
+
+    - name: Set SSL certs path
+      set_fact:
+        xwiki_certificate_file: "/etc/ssl/{{servername}}/{{servername}}.pem"
+        xwiki_certificate_key_file: "/etc/ssl/{{servername}}/{{servername}}.key"
+        xwiki_certificate_chain_file: "/etc/ssl/{{servername}}/{{servername}}.csr"
+      when: xwiki_debug
+
   roles:
+    # SSL certificate for the web server
+    - role: rastandy.letsencrypt
+      letsencrypt_email: "{{ administrator_email }}"
+      letsencrypt_cert_domains:
+        - "{{ servername }}"
+      when: xwiki_apache_service and not xwiki_debug
+
     # Database installation and configuration
     - role: ANXS.postgresql
       postgresql_version: "{{xwiki_postgresql_version}}"
@@ -66,17 +87,16 @@
         port_redirect: 18443
         port_shutdown: 18005
 
-    # SSL certificate for the web server
     - role: jdauphant.ssl-certs
       ssl_certs_common_name: "{{ servername }}"
       ssl_certs_path_owner: "apache"
       ssl_certs_path_group: "apache"
       ssl_certs_country: "EU"
       ssl_certs_locality: "Europe"
-      ssl_certs_organization: "climateurope"
+      ssl_certs_organization: "My Organization"
       ssl_certs_state: "Europe"
       ssl_certs_days: "1825"
-      when: xwiki_apache_service
+      when: xwiki_apache_service and xwiki_debug
 
     - role: rastandy.apache
       apache_global_vhost_settings: |
@@ -89,9 +109,9 @@
       apache_vhosts_ssl:
         - servername: "{{ servername }}"
           documentroot: "/var/www/html"
-          certificate_file: "/etc/ssl/{{servername}}/{{servername}}.pem"
-          certificate_key_file: "/etc/ssl/{{servername}}/{{servername}}.key"
-          certificate_chain_file: "/etc/ssl/{{servername}}/{{servername}}.csr"
+          certificate_file: "{{ xwiki_certificate_file }}"
+          certificate_key_file: "{{ xwiki_certificate_key_file }}"
+          certificate_chain_file: "{{ xwiki_certificate_chain_file }}"
           extra_parameters: |
             ProxyRequests   Off
             ProxyPreserveHost On
