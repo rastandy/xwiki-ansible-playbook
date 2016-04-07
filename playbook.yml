@@ -36,13 +36,6 @@
       when: xwiki_debug
 
   roles:
-    # SSL certificate for the web server
-    - role: rastandy.letsencrypt
-      letsencrypt_email: "{{ administrator_email }}"
-      letsencrypt_cert_domains:
-        - "{{ servername }}"
-      when: xwiki_apache_service and not xwiki_debug
-
     # Database installation and configuration
     - role: ANXS.postgresql
       postgresql_version: "{{xwiki_postgresql_version}}"
@@ -85,6 +78,13 @@
         port_redirect: 18443
         port_shutdown: 18005
 
+    # SSL certificate for the web server
+    - role: rastandy.letsencrypt
+      letsencrypt_email: "{{ administrator_email }}"
+      letsencrypt_cert_domains:
+        - "{{ servername }}"
+      when: (xwiki_apache_service or xwiki_postfix_service) and not xwiki_debug
+
     - role: jdauphant.ssl-certs
       ssl_certs_common_name: "{{ servername }}"
       ssl_certs_path_owner: "apache"
@@ -94,7 +94,7 @@
       ssl_certs_organization: "My Organization"
       ssl_certs_state: "Europe"
       ssl_certs_days: "1825"
-      when: xwiki_apache_service and xwiki_debug
+      when: (xwiki_apache_service or xwiki_postfix_service) and xwiki_debug
 
     - role: rastandy.apache
       apache_global_vhost_settings: |
