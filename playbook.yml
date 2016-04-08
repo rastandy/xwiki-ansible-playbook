@@ -113,10 +113,11 @@
           certificate_key_file: "{{ xwiki_certificate_key_file }}"
           certificate_chain_file: "{{ xwiki_certificate_chain_file }}"
           extra_parameters: |
+            AllowEncodedSlashes On
             ProxyRequests   Off
             ProxyPreserveHost On
-            ProxyPass / ajp://localhost:18009/
-            ProxyPassReverse / ajp://localhost:18009/
+            ProxyPass / ajp://localhost:18009/ nocanon
+            ProxyPassReverse / ajp://localhost:18009/ nocanon
       when: xwiki_apache_service
 
     - role: rastandy.postfix
