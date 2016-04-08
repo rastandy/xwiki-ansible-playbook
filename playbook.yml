@@ -12,6 +12,7 @@
       with_first_found:
         - "host_vars/{{ ansible_hostname }}"
         - "host_vars/default"
+      tags: letsencrypt
 
     - name: Ensure "apache" user exists
       yum: name=httpd state=present
@@ -84,6 +85,7 @@
       letsencrypt_cert_domains:
         - "{{ servername }}"
       when: (xwiki_apache_service or xwiki_postfix_service) and not xwiki_debug
+      tags: letsencrypt
 
     - role: jdauphant.ssl-certs
       ssl_certs_common_name: "{{ servername }}"
