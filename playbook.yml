@@ -12,7 +12,7 @@
       with_first_found:
         - "host_vars/{{ ansible_hostname }}"
         - "host_vars/default"
-      tags: letsencrypt
+      tags: [letsencrypt, postfix]
 
     - name: Ensure "apache" user exists
       yum: name=httpd state=present
@@ -28,6 +28,7 @@
         xwiki_certificate_key_file: "/etc/letsencrypt/live/{{servername}}/privkey.pem"
         xwiki_certificate_chain_file: "/etc/letsencrypt/live/{{servername}}/chain.pem"
       when: not xwiki_debug
+      tags: postfix
 
     - name: Set SSL certs path
       set_fact:
@@ -35,6 +36,7 @@
         xwiki_certificate_key_file: "/etc/ssl/{{servername}}/{{servername}}.key"
         xwiki_certificate_chain_file: "/etc/ssl/{{servername}}/{{servername}}.csr"
       when: xwiki_debug
+      tags: postfix
 
   roles:
     # Database installation and configuration
@@ -121,9 +123,11 @@
       when: xwiki_apache_service
 
     - role: rastandy.postfix
+      postfix_mydestination: "localhost.localdomain, localhost, {{ ansible_hostname }}, {{ servername }}"
       postfix_tls_cert_file: "{{ xwiki_certificate_file }}"
       postfix_tls_key_file: "{{ xwiki_certificate_key_file }}"
       when: xwiki_postfix_service
+      tags: postfix
 
     - role: geerlingguy.firewall
       firewall_allowed_tcp_ports:
