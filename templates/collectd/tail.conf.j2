@@ -9,7 +9,7 @@ LoadPlugin tail
 
 <Plugin tail>
     # Failed SSH logins
-    <File "/var/log/auth.log">
+    <File "/var/log/secure">
         Instance "auth"
         <Match>
             Regex "\\<sshd[^:]*: Invalid user [^ ]+ from\\>"
