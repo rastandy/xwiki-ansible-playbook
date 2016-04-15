@@ -15,9 +15,16 @@ xwiki_store_attachment_versioning_hint: "{{xwiki_store_attachment_hint}}"
 xwiki_store_attachment_recyclebin_hint: "{{xwiki_store_attachment_hint}}"
 
 # XWiki download base url
-xwiki_version: 7.4.1
+xwiki_version: 7.4.2
 xwiki_download_url: "http://download.forge.ow2.org/xwiki/xwiki-enterprise-web-{{ xwiki_version }}.war"
-xwiki_sha256sum: 1eae8eb8d5e4cce2ee8b87dc43c2b6dd3f959a8c4155b49ab837c2f1831e80f9
+# XWiki Enterprise 7.4.1 sha256
+# xwiki_sha256sum: 1eae8eb8d5e4cce2ee8b87dc43c2b6dd3f959a8c4155b49ab837c2f1831e80f9
+
+# XWiki Enterprise 7.4.2 sha256
+xwiki_sha256sum: 9d5b2a87e6e45090bc58ce4bcff26a9eb1613c4712bc85364544b816913e0a28 
+
+# XWiki Enterprise 8.0 sha256
+#xwiki_sha256sum c65d622399c642c111e44337a9c9c465ec3912c702356d16ffff4b0ed4939b2a
 
 xwiki_postgresql_version: 9.5
 xwiki_postgresql_encoding: 'UTF-8'
