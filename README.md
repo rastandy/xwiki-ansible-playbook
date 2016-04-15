@@ -91,6 +91,6 @@ override defaluts by creating a file called
 ``host_vars/xwiki-mycompany`` and customize variables in there as you
 wish.
 
-## Licence
+## License
 
 GPLv3
