@@ -38,68 +38,68 @@ LoadPlugin tail
         <Match>
             Regex "\\<postfix\\/smtpd\\[[0-9]+\\]: connect from\\>"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "connection-in-open"
         </Match>
         <Match>
             Regex "\\<postfix\\/smtpd\\[[0-9]+\\]: disconnect from\\>"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "connection-in-close"
         </Match>
         <Match>
             Regex "\\<postfix\\/smtpd\\[[0-9]+\\]: lost connection after .* from\\>"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "connection-in-lost"
         </Match>
         <Match>
             Regex "\\<postfix\\/smtpd\\[[0-9]+\\]: timeout after .* from\\>"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "connection-in-timeout"
         </Match>
         <Match>
             Regex "\\<postfix\\/smtpd\\[[0-9]+\\]: setting up TLS connection from\\>"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "connection-in-TLS-setup"
         </Match>
         <Match>
             Regex "\\<postfix\\/smtpd\\[[0-9]+\\]: [A-Za-z]+ TLS connection established from\\>"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "connection-in-TLS-established"
         </Match>
         # (outgoing)
         <Match>
             Regex "\\<postfix\\/smtpd\\[[0-9]+\\]: connect to .* Connection refused\\>"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "connection-out-refused"
         </Match>
         <Match>
             Regex "\\<postfix\\/smtpd\\[[0-9]+\\]: connect to .* Connection timed out\\>"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "connection-out-timeout"
         </Match>
         <Match>
             Regex "\\<postfix\\/smtpd\\[[0-9]+\\]: connect to .* Network is unreachable\\>"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "connection-out-network-unreachable"
         </Match>
         <Match>
             Regex "\\<postfix\\/smtp\\[[0-9]+\\]: setting up TLS connection to\\>"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "connection-out-TLS-setup"
         </Match>
         <Match>
             Regex "\\<postfix\\/smtp\\[[0-9]+\\]: [A-Za-z]+ TLS connection established to\\>"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "connection-out-TLS-established"
         </Match>
 
@@ -107,25 +107,25 @@ LoadPlugin tail
         <Match>
             Regex "\\<554 5\\.7\\.1\\>"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "rejected"
         </Match>
         <Match>
             Regex "\\<450 4\\.7\\.1\\>.*Helo command rejected: Host not found\\>"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "rejected-host_not_found"
         </Match>
         <Match>
             Regex "\\<450 4\\.7\\.1\\>.*Client host rejected: No DNS entries for your MTA, HELO and Domain\\>"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "rejected-no_dns_entry"
         </Match>
         <Match>
             Regex "\\<450 4\\.7\\.1\\>.*Client host rejected: Mail appeared to be SPAM or forged\\>"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "rejected-spam_or_forged"
         </Match>
 
@@ -133,37 +133,37 @@ LoadPlugin tail
         <Match>
             Regex "status=deferred"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "status-deferred"
         </Match>
         <Match>
             Regex "status=forwarded"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "status-forwarded"
         </Match>
         <Match>
             Regex "status=reject"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "status-reject"
         </Match>
         <Match>
             Regex "status=sent"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "status-sent"
         </Match>
         <Match>
             Regex "status=bounced"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "status-bounced"
         </Match>
         <Match>
             Regex "status=SOFTBOUNCE"
             DSType "CounterInc"
-            Type "mail_counter"
+            Type "email_count"
             Instance "status-softbounce"
         </Match>
 
