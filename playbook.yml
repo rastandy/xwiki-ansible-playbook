@@ -12,7 +12,7 @@
       with_first_found:
         - "host_vars/{{ ansible_hostname }}"
         - "host_vars/default"
-      tags: [letsencrypt, postfix, firewall]
+      tags: [letsencrypt, postfix, firewall, monitoring]
 
     - name: Ensure "apache" user exists
       yum: name=httpd state=present
@@ -178,10 +178,12 @@
       riemann_bind_address: 127.0.0.1
       riemann_extra: true
       when: xwiki_monitoring_service
+      tags: monitoring
 
     - role: rastandy.riemann-client
       riemann_tool_health: false
       when: xwiki_monitoring_service
+      tags: monitoring
 
     - role: rastandy.collectd
       collectd_global_options_default_interval: 5
@@ -226,6 +228,7 @@
                       - StoreRates: false
                       - AlwaysAppendDS: false
       when: xwiki_monitoring_service
+      tags: monitoring
 
   tasks:
     - include: ./install.yml

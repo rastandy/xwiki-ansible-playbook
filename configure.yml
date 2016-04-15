@@ -93,6 +93,7 @@
     - tail
   notify: Restart collectd service
   when: xwiki_monitoring_service
+  tags: monitoring
 
 - name: Copy configuration files for Riemann
   template:
@@ -106,3 +107,4 @@
     - setup
   notify: restart riemann
   when: xwiki_monitoring_service
+  tags: monitoring
