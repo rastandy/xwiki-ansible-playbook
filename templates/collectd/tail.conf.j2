@@ -19,7 +19,7 @@ LoadPlugin tail
         </Match>
     </File>
 
-    <File "/var/log/auth.log">
+    <File "/var/log/secure">
         Instance "auth"
         <Match>
             Regex "sshd[^:]*: Accepted (password|publickey) for [^ ]+ from"
@@ -30,7 +30,7 @@ LoadPlugin tail
     </File>
 
     # Postfix logs
-    <File "/var/log/mail.log">
+    <File "/var/log/maillog">
         Instance "postfix"
 
         # number of connections
