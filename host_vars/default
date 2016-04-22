@@ -21,3 +21,4 @@ xwiki_libreoffice_service: false
 xwiki_firewall_service: false
 xwiki_postfix_service: true
 xwiki_colojure_scripting: true
+xwiki_plugin_excel: true

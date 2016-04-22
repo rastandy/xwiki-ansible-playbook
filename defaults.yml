@@ -57,4 +57,12 @@ xwiki_clojure_jsr223_filename: "clj-jsr223.jar"
 xwiki_clojure_jsr223_download_url: "https://github.com/rastandy/clj-jsr223/releases/download/{{ xwiki_clojure_jsr223_version }}/{{ xwiki_clojure_jsr223_filename }}"
 xwiki_clojure_jsr223_sha256sum: b7eab1434f278c9282413c947fbddd4b363602369e17d599c44cefee2fda2847
 
+xwiki_plugin_excelplugin_url: "http://extensions.xwiki.org/xwiki/rest/repository/extensions/org.xwiki.contrib%3Axwiki-plugin-excel/versions/1.1/file?rid=maven-xwiki"
+xwiki_plugin_excelplugin_filename: "org.xwiki.contrib-xwiki-plugin-excel-1.1.jar"
+xwiki_plugin_excelplugin_sha256sum: "4135a549c30d9959eb0ccec697b35442153709658af0ae4beb93191947d85c9d"
+
+xwiki_lib_jxl_url: "http://central.maven.org/maven2/net/sourceforge/jexcelapi/jxl/2.6.12/jxl-2.6.12.jar"
+xwiki_lib_jxl_filename: "jxl-2.6.12.jar"
+xwiki_lib_jxl_sha256sum: c5c53645ab751288398f30adaec5551879c5ee334d4862ea77b25a386646621c
+
 riemann_version:      0.2.10
