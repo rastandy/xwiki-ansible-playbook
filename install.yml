@@ -54,13 +54,13 @@
   args:
     url: "{{ item.url }}"
     dest: "{{ lib_persistent_data_path_local }}/{{ item.filename }}"
-    checksum: "{{ item.checksum }}"
+    checksum: "sha256:{{ item.checksum }}"
   with_items:
     - url: "{{ xwiki_clojure_download_url }}"
-      checksum: "sha256:{{ xwiki_clojure_sha256sum }}"
+      checksum: "{{ xwiki_clojure_sha256sum }}"
       filename: "{{ xwiki_clojure_filename }}"
     - url: "{{ xwiki_clojure_jsr223_download_url }}"
-      checksum: "sha256:{{ xwiki_clojure_jsr223_sha256sum }}"
+      checksum: "{{ xwiki_clojure_jsr223_sha256sum }}"
       filename: "{{ xwiki_clojure_jsr223_filename }}"
   when: xwiki_colojure_scripting
 
@@ -86,10 +86,10 @@
     checksum: "sha256:{{ item.checksum }}"
   with_items:
     - url: "{{ xwiki_plugin_excelplugin_url }}"
-      checksum: "sha256:{{ xwiki_plugin_excelplugin_sha256sum }}"
+      checksum: "{{ xwiki_plugin_excelplugin_sha256sum }}"
       filename: "{{ xwiki_plugin_excelplugin_filename }}"
     - url: "{{ xwiki_lib_jxl_url }}"
-      checksum: "sha256:{{ xwiki_lib_jxl_sha256sum }}"
+      checksum: "{{ xwiki_lib_jxl_sha256sum }}"
       filename: "{{ xwiki_lib_jxl_filename }}"
   when: xwiki_plugin_excel
 
