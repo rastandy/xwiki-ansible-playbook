@@ -25,6 +25,8 @@ Vagrant.configure('2') do |config|
     #machine.vm.box = "chef/centos-7.1"
     #machine.vm.box = "chef/centos-6.6"
 
+    machine.vm.synced_folder "~/.m2/repository", "/maven-repo"
+
     machine.vm.network :private_network, ip: '192.168.88.22'
     # machine.vm.network "forwarded_port", host_ip: "127.0.0.1", guest: 5432, host: 15432
     machine.vm.hostname = 'xwiki.vagrant.test'
