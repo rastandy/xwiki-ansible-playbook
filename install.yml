@@ -48,6 +48,13 @@
     group: "{{ xwiki_group }}"
     mode: 0644
 
+- name: Create XWiki local maven repository for custom extensions
+  file:
+    path: "{{ xwiki_environment_permanent_directory }}maven-repository"
+    state: directory
+    owner: "{{ xwiki_user }}"
+    group: "{{ xwiki_group }}"
+
 - name: Download clojure and the clojure JSR 223 compatibility library
   local_action: get_url
   become: false

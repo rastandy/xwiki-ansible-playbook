@@ -408,11 +408,9 @@ openoffice.autoStart=true
 #-# When not set the following is taken:
 # extension.repositories=maven-xwiki:maven:http://nexus.xwiki.org/nexus/content/groups/public
 # extension.repositories=extensions.xwiki.org:xwiki:http://extensions.xwiki.org/xwiki/rest/
-{% if xwiki_debug %}
-extension.repositories=local:maven:file:///maven-repo
+extension.repositories=local:maven:file://{{ xwiki_environment_permanent_directory }}maven-repository
 extension.repositories=maven-xwiki:maven:http://nexus.xwiki.org/nexus/content/groups/public
 extension.repositories=extensions.xwiki.org:xwiki:http://extensions.xwiki.org/xwiki/rest/
-{% endif %}
 #-# 
 #-# To not have any repository enabled (including disabling default repositories) you can explicitly make this list empty:
 # extension.repositories=
