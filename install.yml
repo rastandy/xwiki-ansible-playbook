@@ -48,6 +48,14 @@
     group: "{{ xwiki_group }}"
     mode: 0644
 
+- name: Install the fop-config.xml for XWiki to overcome PDF Export bug XWIKI-13307
+  copy:
+    src: fop-config.xml
+    dest: "{{ xwiki_path }}/webapps/ROOT/WEB-INF/classes/fop-config.xml"
+    owner: "{{ xwiki_user }}"
+    group: "{{ xwiki_group }}"
+    mode: 0644
+
 - name: Create XWiki local maven repository for custom extensions
   file:
     path: "{{ xwiki_environment_permanent_directory }}maven-repository"
