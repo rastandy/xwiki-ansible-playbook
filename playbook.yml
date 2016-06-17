@@ -10,7 +10,7 @@
   pre_tasks:
     - include_vars: "{{ item }}"
       with_first_found:
-        - "host_vars/{{ ansible_hostname }}"
+        - "host_vars/{{ inventory_hostname }}"
         - "host_vars/default"
       tags: [letsencrypt, postfix, firewall, monitoring]
 
