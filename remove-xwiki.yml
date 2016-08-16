@@ -1,0 +1,11 @@
+---
+
+- name: Stopping tomcat-xwiki
+  service:
+    name: tomcat-xwiki
+    state: stopped
+
+- name: Remove XWiki webapp ROOT directory in Tomcat
+  file:
+    path: "{{ xwiki_path }}/webapps/ROOT"
+    state: absent
