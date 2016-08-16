@@ -12,7 +12,7 @@
       with_first_found:
         - "host_vars/{{ inventory_hostname }}"
         - "host_vars/default"
-      tags: [letsencrypt, postfix, firewall, monitoring]
+      tags: [letsencrypt, postfix, firewall, monitoring, upgrade]
 
     - name: Ensure "apache" user exists
       yum: name=httpd state=present
@@ -231,8 +231,15 @@
       tags: monitoring
 
   tasks:
+    - include: ./remove-xwiki.yml
+      tags: upgrade
+      when: upgrade
+
     - include: ./install.yml
+      tags: upgrade
+
     - include: ./configure.yml
+      tags: upgrade
 
   handlers:
     - name: Restart tomcat-xwiki
