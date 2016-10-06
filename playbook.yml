@@ -170,7 +170,7 @@
 
     # Activate bacula-fd client service
     - role: rastandy.bacula-client
-      when: xwiki_backup_service
+      when: xwiki_bacula_service
 
     - role: bennojoy.ntp
 

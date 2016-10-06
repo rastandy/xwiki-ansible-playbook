@@ -17,6 +17,7 @@ bacula_password: "mybaculapassword"
 xwiki_apache_service: false
 xwiki_monitoring_service: false
 xwiki_backup_service: false
+xwiki_bacula_service: false
 xwiki_libreoffice_service: false
 xwiki_firewall_service: false
 xwiki_postfix_service: true
