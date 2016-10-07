@@ -27,6 +27,9 @@ xwiki_download_url: "http://download.forge.ow2.org/xwiki/xwiki-enterprise-web-{{
 # XWiki Enterprise 7.4.4 sha256
 xwiki_sha256sum: 6563dbe6c559ecb0595911cab5e57b05301ef1e4cc51db7d40bcc77ae2987cea
 
+# XWiki Enterprise 7.4.5 sha256
+# xwiki_sha256sum: 7acd89b0761888c14a6e0fb2f1b1cd26dab75234e80dd9aedcebec27ac15eec3
+
 # XWiki Enterprise 8.0 sha256
 #xwiki_sha256sum c65d622399c642c111e44337a9c9c465ec3912c702356d16ffff4b0ed4939b2a
 
