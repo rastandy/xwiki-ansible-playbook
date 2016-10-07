@@ -78,7 +78,7 @@ xwiki_backup_service: false
 xwiki_libreoffice_service: false
 xwiki_firewall_service: false
 xwiki_postfix_service: true
-xwiki_colojure_scripting: true
+xwiki_clojure_scripting: true
 ```
 
 To customize these variables, for example because you want to activate
