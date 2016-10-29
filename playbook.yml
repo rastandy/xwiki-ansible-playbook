@@ -165,7 +165,7 @@
           max_full_backups: 1
           user: "{{ xwiki_user }}"
           source: "{{ xwiki_environment_permanent_directory }}"
-          target: file:///{{ xwiki_tomcat_path }}/backups
+          target: file://{{ xwiki_tomcat_path }}/backups
       when: xwiki_backup_service
 
     # Activate bacula-fd client service
