@@ -124,6 +124,7 @@
 
     - role: rastandy.postfix
       postfix_mydestination: "localhost.localdomain, localhost, {{ ansible_hostname }}, {{ servername }}"
+      postfix_inet_protocols: "ipv4"
       postfix_tls_cert_file: "{{ xwiki_certificate_file }}"
       postfix_tls_key_file: "{{ xwiki_certificate_key_file }}"
       when: xwiki_postfix_service
