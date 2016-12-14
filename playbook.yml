@@ -124,6 +124,7 @@
 
     - role: rastandy.postfix
       postfix_mydestination: "localhost.localdomain, localhost, {{ ansible_hostname }}, {{ servername }}"
+      postfix_inet_interfaces: "127.0.0.1"
       postfix_inet_protocols: "ipv4"
       postfix_tls_cert_file: "{{ xwiki_certificate_file }}"
       postfix_tls_key_file: "{{ xwiki_certificate_key_file }}"
@@ -139,8 +140,8 @@
         - "9102" # bacula
         - "9103" # bacula
       firewall_allowed_udp_ports:
-        - "60000" # mosh
-        - "60001" # mosh
+        # - "60000" # mosh
+        # - "60001" # mosh
       when: xwiki_firewall_service and not xwiki_debug
       tags: firewall
 
