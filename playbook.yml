@@ -116,6 +116,7 @@
           certificate_chain_file: "{{ xwiki_certificate_chain_file }}"
           extra_parameters: |
             AllowEncodedSlashes On
+            TimeOut 300
             ProxyRequests   Off
             ProxyPreserveHost On
             ProxyPass / ajp://localhost:18009/ nocanon
