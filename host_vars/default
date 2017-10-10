@@ -1,8 +1,11 @@
 ---
+xwiki_debug: true
+
 servername: "xwiki.vagrant.test"
 administrator_email: "root@example.org"
 
 xwiki_version: 7.2
+xwiki_sha256sum: "15fb762a5eeec5cb83e383399cfd6615fd0dc3e5f9a1acff9287615fa2b7a614"
 xwiki_java_version: "8u66"
 xwiki_tomcat_version: "8.0.32"
 postgresql_jdbc_driver_version: "9.4.1207"
