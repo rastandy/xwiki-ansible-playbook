@@ -1,6 +1,17 @@
 ---
 # vars file for xwiki
 
+xwiki_database: "{{ xwiki_user }}"
+xwiki_database_user: "{{ xwiki_user }}"
+
+xwiki_store_attachment_versioning_hint: "{{xwiki_store_attachment_hint}}"
+xwiki_store_attachment_recyclebin_hint: "{{xwiki_store_attachment_hint}}"
+
+# environment.permanentDirectory where persistent data is stored
+xwiki_environment_permanent_directory: "{{xwiki_tomcat_path}}/persistent_data/"
+
+xwiki_download_url: "http://download.forge.ow2.org/xwiki/xwiki-enterprise-web-{{ xwiki_version }}.war"
+
 xwiki_path: "{{ xwiki_tomcat_path }}/catalina/xwiki"
 
 # filename of XWiki war
@@ -18,5 +29,11 @@ postgresql_pg_hba_default:
 postgresql_version: "{{ xwiki_postgresql_version }}"
 postgresql_jdbc_driver_filename: "postgresql-{{ postgresql_jdbc_driver_version }}.jar"
 postgresql_jdbc_driver_url: "https://jdbc.postgresql.org/download/{{ postgresql_jdbc_driver_filename }}"
+
+xwiki_clojure_filename: "clojure-{{ xwiki_clojure_version }}.jar"
+xwiki_clojure_download_url: "http://search.maven.org/remotecontent?filepath=org/clojure/clojure/{{ xwiki_clojure_version }}/{{ xwiki_clojure_filename }}"
+
+xwiki_clojure_jsr223_download_url: "https://github.com/rastandy/clj-jsr223/releases/download/{{ xwiki_clojure_jsr223_version }}/{{ xwiki_clojure_jsr223_filename }}"
+xwiki_clojure_jsr223_sha256sum: b7eab1434f278c9282413c947fbddd4b363602369e17d599c44cefee2fda2847
 
 tomcat_server_systemd_template: tomcat_xwiki_service_systemd.j2

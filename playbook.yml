@@ -5,7 +5,6 @@
 
   vars_files:
     - defaults.yml
-    - vars.yml
 
   pre_tasks:
     - include_vars: "{{ item }}"
@@ -13,6 +12,8 @@
         - "host_vars/{{ inventory_hostname }}"
         - "host_vars/default"
       tags: [letsencrypt, postfix, firewall, monitoring, upgrade]
+
+    - include_vars: vars.yml
 
     - name: Ensure "apache" user exists
       yum: name=httpd state=present
