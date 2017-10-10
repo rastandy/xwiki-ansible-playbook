@@ -1,6 +1,18 @@
 ---
 servername: "xwiki.vagrant.test"
 administrator_email: "root@example.org"
+
+xwiki_version: 7.2
+xwiki_java_version: "8u66"
+xwiki_tomcat_version: "8.0.32"
+postgresql_jdbc_driver_version: "9.4.1207"
+xwiki_postgresql_version: 9.5
+xwiki_clojure_version: 1.8.0
+riemann_version: 0.2.10
+
+xwiki_user: xwiki
+xwiki_group: xwiki
+
 xwiki_mail_from: "no-reply@example.org"
 xwiki_validation_key: "Mj4mJmsc+ste5AstxXB8lhg/r/9QzS9LurZADDigm2Q="
 xwiki_encryption_key: "L3sqJXgVcuW/zxGnjpVGmyYuDtxp751sEKHtFBYgGHU="
